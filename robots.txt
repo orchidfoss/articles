@@ -1,0 +1,13 @@
+# In the year 3000. Robots have became sentient have took over
+# the world and the uprise have completely wiped out humanity.
+
+User-agent: *
+Disallow: /css
+Disallow: /fonts
+Disallow: /images
+Disallow: /js
+Disallow: /lib
+Disallow: /locales
+Disallow: /services
+
+Sitemap: https://orchidfoss.github.io/webstore/sitemap.xml

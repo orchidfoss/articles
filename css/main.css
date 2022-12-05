@@ -1,0 +1,627 @@
+@font-face {
+  font-family: 'Readex Pro';
+  src: url(../fonts/Readex_Pro/ReadexPro-VariableFont_wght.ttf);
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans Arabic';
+  src: url(../fonts/IBMPlexSansArabic-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans Arabic';
+  font-weight: bold;
+  src: url(../fonts/IBMPlexSansArabic-Bold.ttf);
+}
+
+:root {
+
+  /** Accent Color
+   ---------------------------------------------------------*/
+
+  --accent-color: #0061e0;
+  --accent-text-color: rgba(255,255,255,0.75);
+  --focus-outline: 0.2rem solid var(--accent-color);
+
+  /** Statusbar Filter
+   ---------------------------------------------------------*/
+
+  --statusbar-filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='invert'><feColorMatrix in='SourceGraphic' color-interpolation-filters='sRGB' type='matrix' values='1 -1 0.3019 0 0 0 0.3019 0 0 0 0 0 0.3019 0 0 0 0 0 1 0'/></filter></svg>#invert");
+
+  /** Grey Colors
+   ---------------------------------------------------------*/
+
+  --color-alpha: #333333;
+  --color-beta: #ffffff;
+  --color-gamma: #4d4d4d;
+  --color-delta: #5f5f5f;
+  --color-epsilon: #858789;
+  --color-zeta: #a6a8ab;
+  --color-eta: #c7c9cc;
+  --color-theta: #e7e9ec;
+  --color-iota: #f4f6f8;
+
+  /** Brand Colors
+   ---------------------------------------------------------*/
+
+  --color-darkblue: #0061e0;
+  --color-blue: #00a0e8;
+  --color-turquoise: #00ddff;
+  --color-darkorange: #a04030;
+  --color-orange: #ff6040;
+  --color-yellow: #ffc000;
+  --color-violet: #d15ca8;
+
+  --color-warning: var(--color-yellow);
+  --color-destructive: #c00040;
+  --color-preffered: #40a060;
+
+  /** Background
+   ---------------------------------------------------------*/
+
+  --background: #e7e9ec;
+  --background-plus: #fff;
+  --background-minus: #a6a8ab;
+
+  /** Borders
+   ---------------------------------------------------------*/
+
+  --border-color: var(--color-theta);
+
+  /** Text Color
+   ---------------------------------------------------------*/
+
+  --text-color: #333;
+  --text-color-minus: #fff;
+  --label-color: #333;
+
+  /** Button
+   ---------------------------------------------------------*/
+
+  --button-background: #fff;
+  --button-background-plus: #d8dadd;
+  --button-background-minus: #c8cacd;
+
+  /** Links
+   ---------------------------------------------------------*/
+
+  --link-color: var(--accent-color);
+
+  /** Inputs
+   ---------------------------------------------------------*/
+
+  --input-background: #f4f4f4;
+  --input-color: #333;
+  --input-clear-background: #909ca7;
+
+  /** Buttons
+   ---------------------------------------------------------*/
+
+  --button-box-shadow: none;
+  --button-box-shadow-active: var(--button-box-shadow);
+
+  /** Header
+   ---------------------------------------------------------*/
+
+  --header-background: var(--background);
+  --header-color: var(--text-color);
+  --header-icon-color: var(--text-color);
+  --header-button-color: var(--text-color);
+  --header-disabled-button-color: #858789;
+  --header-action-button-color: var(--text-color);
+
+  /** Transitions
+   ---------------------------------------------------------*/
+
+  --transition-duration: 0.3s;
+
+  /** Palettes
+   ---------------------------------------------------------*/
+
+  --background-alpha: #b0b2b5;
+  --background-beta: #ffffff;
+  --background-gamma: #b9bbbe;
+  --background-delta: #c0c2c5;
+  --background-epsilon: #c7c9cc;
+  --background-zeta: #d0d2d5;
+  --background-eta: #d8dadd;
+  --background-theta: #e0e2e5;
+  --background-iota: #e7e9ec;
+
+  --translucent: rgba(0,0,0,0.05);
+  --translucent-plus: rgba(0,0,0,0.1);
+  --translucent-minus: rgba(0,0,0,0.2);
+
+  /* The same as the effect people watch on YouTube */
+  --neumorphic-background: linear-gradient(to bottom, #c4c6c9, #fff);
+  --neumorphic-shadow:
+    1rem 1rem 1.5rem #c4c6c9,
+    -1rem -1rem 1.5rem #fff;
+  --neumorphic-shadow-inner:
+    inset 1rem 1rem 1.5rem #c4c6c9,
+    inset -1rem -1rem 1.5rem #fff;
+
+  /* Buttons like the ones in the FM Radio app */
+  --neumorphic-button-background: linear-gradient(to bottom, #d0d2d5, #fff);
+  --neumorphic-button-shadow:
+    inset 0.3rem 0.3rem 0.1rem #fff,
+    inset -0.3rem 0.3rem 0.1rem #e0e2e5,
+    inset 0.3rem -0.3rem 0.1rem #e0e2e5,
+    inset -0.3rem -0.3rem 0.1rem #d0d2d5;
+
+  --backdrop-color: rgba(231, 233, 236, 0.5);
+
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+
+  /** Accent Color
+   ---------------------------------------------------------*/
+
+  --accent-color: #00ddff;
+  --accent-text-color: rgba(0,0,0,0.75);
+  --focus-outline: 0.2rem solid var(--accent-color);
+
+  /** Statusbar Filter
+   ---------------------------------------------------------*/
+
+  --statusbar-filter: none;
+
+  /** Grey Colors
+   ---------------------------------------------------------*/
+
+  --color-alpha: #333333;
+  --color-beta: #ffffff;
+  --color-gamma: #4d4d4d;
+  --color-delta: #5f5f5f;
+  --color-epsilon: #858789;
+  --color-zeta: #a6a8ab;
+  --color-eta: #c7c9cc;
+  --color-theta: #e7e9ec;
+  --color-iota: #f4f6f8;
+
+  /** Brand Colors
+   ---------------------------------------------------------*/
+
+  --color-darkblue: #0061e0;
+  --color-blue: #00a0e8;
+  --color-turquoise: #00ddff;
+  --color-darkorange: #a04030;
+  --color-orange: #ff6040;
+  --color-yellow: #ffc000;
+  --color-violet: #d15ca8;
+
+  --color-warning: var(--color-yellow);
+  --color-destructive: #c00040;
+  --color-preffered: #40a060;
+
+  /** Background
+   ---------------------------------------------------------*/
+
+  --background: #101214;
+  --background-plus: #212325;
+  --background-minus: #66686a;
+
+  /** Borders
+   ---------------------------------------------------------*/
+
+  --border-color: var(--color-theta);
+
+  /** Text Color
+   ---------------------------------------------------------*/
+
+   --text-color: #fff;
+   --text-color-minus: #333;
+   --label-color: #fff;
+
+  /** Button
+   ---------------------------------------------------------*/
+
+  --button-background: #303234;
+  --button-background-plus: #383a3c;
+  --button-background-minus: #404244;
+
+  /** Links
+   ---------------------------------------------------------*/
+
+  --link-color: var(--accent-color);
+
+  /** Inputs
+   ---------------------------------------------------------*/
+
+  --input-background: #1c1e20;
+  --input-color: #fff;
+  --input-clear-background: #7c7b82;
+
+  /** Buttons
+   ---------------------------------------------------------*/
+
+  --button-box-shadow: none;
+  --button-box-shadow-active: var(--button-box-shadow);
+
+  /** Header
+   ---------------------------------------------------------*/
+
+  --header-background: var(--background);
+  --header-color: var(--text-color);
+  --header-icon-color: var(--text-color);
+  --header-button-color: var(--text-color);
+  --header-disabled-button-color: #858789;
+  --header-action-button-color: var(--text-color);
+
+  /** Transitions
+   ---------------------------------------------------------*/
+
+  --transition-duration: 0.3s;
+
+  /** Palettes
+   ---------------------------------------------------------*/
+
+  --background-alpha: #000204;
+  --background-beta: #303234;
+  --background-gamma: #040608;
+  --background-delta: #080a0c;
+  --background-epsilon: #0c0e10;
+  --background-zeta: #101214;
+  --background-eta: #181a1c;
+  --background-theta: #202224;
+  --background-iota: #282a2c;
+
+  --translucent: rgba(255,255,255,0.05);
+  --translucent-plus: rgba(255,255,255,0.15);
+  --translucent-minus: rgba(255,255,255,0.25);
+
+  /* The same as the effect people watch on YouTube */
+  --neumorphic-background: linear-gradient(to bottom, #1c1e1f, #26282b);
+  --neumorphic-shadow:
+    1rem 1rem 1.5rem #1c1e1f,
+    -1rem -1rem 1.5rem #26282b;
+  --neumorphic-shadow-inner:
+    inset 1rem 1rem 1.5rem #1c1e1f,
+    inset -1rem -1rem 1.5rem #26282b;
+
+  /* Buttons like the ones in the FM Radio app */
+  --neumorphic-button-background: linear-gradient(to bottom, #212325, #303234);
+  --neumorphic-button-shadow:
+    inset 0.3rem 0.3rem 0.1rem #303234,
+    inset -0.3rem 0.3rem 0.1rem #282a2c,
+    inset 0.3rem -0.3rem 0.1rem #282a2c,
+    inset -0.3rem -0.3rem 0.1rem #212325;
+
+  --backdrop-color: rgba(16, 18, 20, 0.5);
+
+  color-scheme: dark;
+}
+
+:focus-visible {
+  outline: dashed 0.1rem currentColor;
+}
+
+::-webkit-file-upload-button {
+  padding: 0 3rem;
+  box-sizing: border-box;
+  border-radius: 2rem;
+  height: 4rem;
+  line-height: 4rem;
+  font-size: 1.6rem;
+  font-weight: normal;
+  font-family: 'IBM Plex Sans Arabic', 'Noto Sans', 'Noto Naskh Arabic', system-ui;
+  border: none;
+  background: var(--button-background);
+}
+
+::-webkit-file-upload-button:hover {
+  background: var(--button-background-plus);
+}
+
+::-webkit-file-upload-button:active {
+  background: var(--button-background-minus);
+}
+
+[hidden] {
+  display: none !important;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-size: 10px;
+  font-family: 'IBM Plex Sans Arabic', 'Noto Sans', 'Noto Naskh Arabic', system-ui;
+  background: var(--background);
+  scroll-behavior: smooth;
+}
+
+body {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+button, input, select {
+  font-family: 'IBM Plex Sans Arabic', 'Noto Sans', 'Noto Naskh Arabic', system-ui;
+  font-size: 1.6rem;
+}
+
+.transition,
+.transition * {
+  transition: all 0.5s ease !important;
+}
+
+.scrollbar-track {
+  background: transparent !important;
+  transition: width 0.3s ease, height 0.3s ease, opacity 0.3s ease, background 0.3s ease !important;
+}
+
+.scrollbar-track:hover {
+  background: var(--background-plus) !important;
+}
+
+.scrollbar-track-x {
+  height: 1rem;
+}
+
+.scrollbar-track-x:hover {
+  height: 1.6rem;
+}
+
+.scrollbar-track-y {
+  width: 1rem;
+}
+
+.scrollbar-track-y:hover {
+  width: 1.6rem;
+}
+
+.scrollbar-thumb {
+  background: #858585 !important;
+  border: solid 0.25rem transparent !important;
+  border-radius: 99px !important;
+  background-clip: content-box !important;
+  box-sizing: border-box;
+  transition: border-width 0.3s ease;
+}
+
+.scrollbar-track-x .scrollbar-thumb {
+  height: 100% !important;
+}
+
+.scrollbar-track-y .scrollbar-thumb {
+  width: 100% !important;
+}
+
+.oui--header {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+}
+
+#sidebar {
+  position: fixed;
+  top: 5rem;
+  width: 320px;
+  padding: 0.5rem 1.5rem;
+  box-sizing: border-box;
+  margin: 0;
+  height: calc(100% - 5rem);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+#sidebar > header {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: var(--accent-color);
+  text-transform: uppercase;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+  height: 3rem;
+  line-height: 3rem;
+  margin: 1rem 0 0;
+}
+
+#sidebar > ul {
+  margin: 0;
+  padding: 0;
+}
+
+#sidebar > ul li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#sidebar > ul li a {
+  width: 100%;
+  height: 4rem;
+  line-height: 4rem;
+  border-radius: 0.8rem;
+  display: block;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 1.6rem;
+  font-weight: normal;
+  transition: box-shadow 0.2s ease;
+}
+
+#sidebar > ul li a:hover {
+  background: var(--translucent);
+}
+
+#sidebar > ul li a:active {
+  background: var(--translucent-plus);
+}
+
+#sidebar > ul li a[aria-selected="true"] {
+  background: var(--background-plus);
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
+  font-weight: bold;
+}
+
+#sidebar > ul li a[aria-selected="true"]:hover {
+  box-shadow: 0 1rem 2rem rgba(0,0,0,0.1);
+}
+
+#sidebar > ul li a[data-icon] {
+  position: relative;
+  -moz-padding-start: 4rem;
+  padding-inline-start: 4rem;
+}
+
+#sidebar > ul li a[data-icon]:before {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  font-size: 2rem;
+  margin: 0 1rem;
+}
+html[dir="ltr"] #sidebar > ul li a[data-icon]:before {
+  left: 0;
+}
+html[dir="rtl"] #sidebar > ul li a[data-icon]:before {
+  right: 0;
+}
+
+#sidebar > ul li a > em {
+  position: absolute;
+  top: 0.8rem;
+  height: 2.4rem;
+  line-height: 2.4rem;
+  font-size: 1.6rem;
+  font-weight: normal;
+  font-style: normal;
+  background: var(--accent-color);
+  color: var(--accent-text-color);
+  margin: 0 1rem;
+  padding: 0 0.5rem;
+  box-sizing: border-box;
+  border-radius: 1.2rem;
+}
+html[dir="ltr"] #sidebar > ul li a > em {
+  right: 0;
+}
+html[dir="rtl"] #sidebar > ul li a > em {
+  left: 0;
+}
+
+.content {
+  position: absolute !important;
+  top: 5rem;
+  margin: 0;
+  padding: 0;
+  width: calc(100% - 320px);
+  height: calc(100% - 5rem);
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: var(--background);
+  display: block;
+
+  transition: all 0.3s ease;
+  transform: translateY(128px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+html[dir="ltr"] .content {
+  right: 0;
+}
+html[dir="rtl"] .content {
+  left: 0;
+}
+
+.content.visible {
+  transition: all 0.5s cubic-bezier(0.2, 0.9, 0.1, 1) 0.3s;
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
+.content.loading-screen {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content.loading-screen svg {
+  width: 6rem;
+  height: 6rem;
+}
+
+#upload-button {
+  background: var(--accent-color);
+  color: var(--accent-text-color);
+  min-width: 5rem;
+  height: 5rem;
+  line-height: 5rem;
+  border-radius: 1.25rem;
+  display: inline-flex;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-size: 1.6rem;
+  font-weight: normal;
+  align-items: center;
+  margin: 0 0 1rem;
+  transition: box-shadow 0.2s ease;
+}
+
+#upload-button:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.2), 0 0.2rem 0.3rem rgba(0,0,0,0.3);
+}
+
+#upload-button[data-icon]:before {
+  font-size: 2rem;
+  -moz-margin-end: 1rem;
+  margin-inline-end: 1rem;
+}
+
+#back-button {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  .oui--header {
+    position: fixed;
+    top: 0;
+    background: var(--background);
+    z-index: 10;
+  }
+
+  #sidebar {
+    position: fixed;
+    width: 80%;
+    height: calc(100vh - 5rem);
+    overflow-x: hidden;
+    overflow-y: auto;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.25), 0 0 0 calc(100vw + 100vh) rgba(0,0,0,0.5);
+    background: var(--background);
+    z-index: 8;
+
+    transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.1, 1), opacity 0.4s cubic-bezier(0.2, 0.9, 0.1, 1), visibility 0.4s;
+    opacity: 0;
+    visibility: hidden;
+  }
+  html[dir="ltr"] #sidebar {
+    transform: translateX(-100%);
+  }
+  html[dir="rtl"] #sidebar {
+    transform: translateX(100%);
+  }
+
+  #sidebar.visible {
+    transform: translateX(0) !important;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .content {
+    width: 100%;
+  }
+}

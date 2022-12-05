@@ -1,0 +1,118 @@
+/* ----------------------------------
+* Seekbars
+* ---------------------------------- */
+[role="slider"],
+input[type="range"] {
+  position: relative;
+  height: 3.5rem;
+}
+
+input[type="range"] {
+  height: 3.5rem;
+  width: 100%;
+  margin: 0;
+  background: none;
+}
+
+input[type="range"]:focus-visible {
+  outline: var(--focus-outline);
+}
+
+[role="slider"] > div {
+  display: block;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  height: 100%;
+}
+
+[role="slider"] progress,
+input[type="range"]::-moz-range-track {
+  width: 100%;
+  background: var(--background-theta, #e0e2e5);
+  border: none;
+  height: 2.4rem;
+  border-radius: 1.5rem;
+}
+
+[role="slider"] progress {
+  display: block;
+  border-radius: 1.5rem;
+  margin-top: 0.6rem;
+}
+
+[role="slider"] progress::-moz-progress-bar,
+input[type=range]::-moz-range-progress {
+  background: var(--accent-color, #0061e0);
+  height: 2.4rem;
+  border-radius: 1.5rem;
+}
+
+[role="slider"] > label {
+  font-size: 1.6rem;
+  line-height: 3.5rem;
+  font-family: sans-serif;
+  color: var(--accent-color, #0061e0);
+  float: right;
+  padding: 0 0 0 1rem;
+  height: 3.5rem;
+  width: auto;
+  font-weight: bold;
+}
+
+[role="slider"] label:first-of-type {
+  float: left;
+  padding: 0 1rem 0 0;
+}
+
+[role="slider"] > label.icon {
+  width: 3rem;
+  height: 3rem;
+  margin: 0.25rem 0;
+  font-size: 0;
+  background: no-repeat right top / 3rem auto;
+}
+
+[role="slider"] > label.icon:first-of-type {
+  background-position: top left;
+}
+
+[role="slider"] button,
+input[type="range"]::-moz-range-thumb {
+  width: 2.4rem;
+  height: 2.4rem;
+  background: var(--accent-color, #0061e0) url(seekbars/images/ui/handler.svg);
+  border-radius: 1.5rem;
+  border: none;
+}
+
+[role="slider"] button:hover,
+input[type="range"]:hover::-moz-range-thumb {
+  background-image: url(seekbars/images/ui/handler_hover.svg);
+}
+
+[role="slider"] button:active,
+input[type="range"]:active::-moz-range-thumb {
+  background-image: url(seekbars/images/ui/handler_active.svg);
+}
+
+[data-accent-scheme="light"] [role="slider"] button,
+[data-accent-scheme="light"] input[type="range"]::-moz-range-thumb {
+  background-image: url(seekbars/images/ui/light/handler.svg);
+}
+
+[role="slider"] button {
+  width: 2.4rem;
+  height: 2.4rem;
+  font-size: 0;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin: -1.15rem 0 0 -1.7rem;
+  padding: 0;
+  box-sizing: content-box;
+}
+
+input[type=range]::-moz-focus-outer {
+  border: none;
+}

@@ -1,0 +1,10 @@
+#post .post-object {
+  width: calc(100% - 3rem);
+  max-width: 1024px;
+  margin: 1rem auto;
+  border-radius: 0.8rem;
+  background: var(--background-plus);
+  text-decoration: none;
+  color: var(--text-color);
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
+}
