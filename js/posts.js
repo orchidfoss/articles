@@ -25,6 +25,7 @@
 
     var icon = document.createElement("img");
     icon.src = data.icon;
+    icon.loading = "lazy";
     icon.onerror = () => {
       icon.src =
         "https://orchidfoss.github.io/images/profile_pictures/avatar_default.svg";
@@ -53,6 +54,7 @@
       data.images.forEach((image) => {
         var element = document.createElement("img");
         element.src = image;
+        element.loading = "lazy";
         images.appendChild(element);
       });
     }
@@ -343,7 +345,7 @@
     for (let pair of queryString.entries()) {
       switch (pair[0]) {
         case "post":
-          window.addEventListener('load', () => {
+          window.addEventListener("load", () => {
             OrchidServices.get("articles/" + pair[1]).then((data) => {
               showPostInfo(data, pair[1], null);
             });

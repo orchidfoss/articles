@@ -41,7 +41,7 @@
   padding: 1rem 0;
   padding-inline-end: 1rem;
   flex: 1;
-  width: 100%;
+  width: calc(100% - 7rem);
   height: 100%;
   box-sizing: border-box;
   display: inline-flex;
