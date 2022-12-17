@@ -112,6 +112,7 @@
   box-sizing: border-box;
   border-radius: 1.5rem 1.5rem 0 0;
   height: 3.6rem;
+  z-index: 110;
   transition: all 0.3s cubic-bezier(0.2, 0.9, 0.1, 1) 0.1s;
 }
 html[dir="ltr"] .header form .search {
@@ -138,6 +139,7 @@ html[dir="rtl"] .header form .search {
   color: var(--text-color, #333);
   background: transparent;
   outline: none;
+  box-shadow: none;
 }
 
 .header form .search > button {
@@ -169,6 +171,7 @@ html[dir="rtl"] .header form .search {
   border-radius: 0 0 1.5rem 1.5rem;
   box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.25);
   min-height: 4rem;
+  z-index: 100;
 
   transition: all 0.3s cubic-bezier(0.2, 0.9, 0.1, 1) 0.1s;
   transform: translateY(-32px);

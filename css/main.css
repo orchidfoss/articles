@@ -389,7 +389,7 @@ button, input, select {
   width: 100% !important;
 }
 
-.oui--header {
+.header {
   position: fixed;
   top: 0;
   z-index: 10;
