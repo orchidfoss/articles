@@ -5,7 +5,7 @@
    height="27"
    version="1.1"
    id="svg6"
-   sodipodi:docname="background_off_hover.svg"
+   sodipodi:docname="background_off.svg"
    inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -68,13 +68,21 @@
      inkscape:window-y="0"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg6" />
+  <linearGradient id="g1" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#c0c2c5" stop-opacity="1" />
+    <stop offset="100%" stop-color="#d0d2d5" stop-opacity="1" />
+  </linearGradient>
+  <linearGradient id="g2" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#414345" stop-opacity="1" />
+    <stop offset="100%" stop-color="#121416" stop-opacity="1" />
+  </linearGradient>
   <path
      d="M 0 0 L 92 0 L 92 27 L 0 27 L 0 0"
-     fill="#d0d2d5"
+     fill="url(#g1)"
      id="path2" />
   <path
      d="M46 5A1 1 0 0046 22 1 1 0 0046 5"
-     fill="#333"
+     fill="url(#g2)"
      id="path4"
      style="filter:url(#filter22)" />
 </svg>

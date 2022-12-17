@@ -73,9 +73,10 @@
   /** Button
    ---------------------------------------------------------*/
 
-  --button-background: #fff;
-  --button-background-plus: #d8dadd;
-  --button-background-minus: #c8cacd;
+  --button-background: linear-gradient(to bottom, #fff, #f4f4f4);
+  --button-background-plus: linear-gradient(to bottom, #d8dadd, #ccced2);
+  --button-background-minus: linear-gradient(to bottom, #bcbec2, #c8cacd);
+  --button-background-list: linear-gradient(to bottom, #e7e9ec, #dbddf0);
 
   /** Links
    ---------------------------------------------------------*/
@@ -145,8 +146,6 @@
     inset -0.3rem -0.3rem 0.1rem #d0d2d5;
 
   --backdrop-color: rgba(231, 233, 236, 0.5);
-
-  color-scheme: light;
 }
 
 [data-theme="dark"] {
@@ -213,9 +212,10 @@
   /** Button
    ---------------------------------------------------------*/
 
-  --button-background: #303234;
-  --button-background-plus: #383a3c;
-  --button-background-minus: #404244;
+  --button-background: linear-gradient(to bottom, #303234, #2c2e30);
+  --button-background-plus: linear-gradient(to bottom, #383a3c, #343638);
+  --button-background-minus: linear-gradient(to bottom, #3c3e40, #404244);
+  --button-background-list: linear-gradient(to bottom, #181a1c, #101214);
 
   /** Links
    ---------------------------------------------------------*/
@@ -285,8 +285,6 @@
     inset -0.3rem -0.3rem 0.1rem #212325;
 
   --backdrop-color: rgba(16, 18, 20, 0.5);
-
-  color-scheme: dark;
 }
 
 :focus-visible {
@@ -301,7 +299,6 @@
   line-height: 4rem;
   font-size: 1.6rem;
   font-weight: normal;
-  font-family: 'Jali Arabic', system-ui, sans-serif;
   border: none;
   background: var(--button-background);
 }
@@ -314,6 +311,10 @@
   background: var(--button-background-minus);
 }
 
+* {
+  font-family: 'Jali Arabic', system-ui, sans-serif;
+}
+
 [hidden] {
   display: none !important;
 }
@@ -322,9 +323,9 @@ html, body {
   margin: 0;
   padding: 0;
   font-size: 10px;
-  font-family: 'Jali Arabic', system-ui, sans-serif;
   background: var(--background);
   scroll-behavior: smooth;
+  color-scheme: light dark;
 }
 
 body {

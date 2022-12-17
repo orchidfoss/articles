@@ -68,9 +68,13 @@
      inkscape:window-y="0"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg6" />
+  <linearGradient id="g1" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#101214" stop-opacity="1" />
+    <stop offset="100%" stop-color="#181a1c" stop-opacity="1" />
+  </linearGradient>
   <path
      d="M 0 0 L 92 0 L 92 27 L 0 27 L 0 0"
-     fill="#181a1c"
+     fill="url(#g1)"
      id="path2" />
   <path
      d="M46 5A1 1 0 0046 22 1 1 0 0046 5"

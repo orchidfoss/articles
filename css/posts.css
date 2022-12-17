@@ -91,18 +91,18 @@
 .post-object > .content-holder .images:not(:empty) {
   display: grid;
   width: 100%;
-  aspect-ratio: 16 / 9;
   border-radius: 1rem;
   overflow: hidden;
-  grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
   grid-template-rows: repeat(auto-fit, minmax(5rem, 1fr));
+  grid-gap: 0.2rem;
 }
 
 .post-object > .content-holder .images > img {
   width: 100%;
-  height: 100%;
   object-fit: cover;
   background: var(--background);
+  border-radius: 1rem;
 }
 
 .post-object > nav {
@@ -135,8 +135,9 @@
 
 .post-object > nav button[data-icon]:before {
   position: static;
-  left: 0;
-  top: 0;
+  top: unset;
+  left: unset !important;
+  right: unset !important;
   width: unset;
   margin: 0;
   margin-inline-end: 1rem;

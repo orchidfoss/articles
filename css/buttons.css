@@ -24,7 +24,7 @@ button,
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  background: var(--button-background, #fff);
+  background: var(--button-background, linear-gradient(to bottom, #fff, #f4f4f4));
   border: none;
   border-radius: 2rem;
   font-weight: normal;
@@ -39,52 +39,52 @@ button,
 /* Recommend */
 button.recommend,
 .bb-button.recommend {
-  background-color: var(--accent-color, #0061e0);
+  background: var(--accent-color, #0061e0) linear-gradient(to bottom, transparent, rgba(0,0,0,0.125));
   color: var(--accent-text-color, rgba(255,255,255,0.75));
 }
 
 button.recommend:hover,
 .bb-button.recommend:hover {
-  background: var(--accent-color, #0061e0) linear-gradient(0deg, rgba(255,255,255,0.125), rgba(255,255,255,0.125));
+  background: var(--accent-color, #0061e0) linear-gradient(to bottom, rgba(255,255,255,0.125), transparent);
 }
 
 button.recommend:active,
 .bb-button.recommend:active {
-  background: var(--accent-color, #0061e0) linear-gradient(0deg, rgba(255,255,255,0.25), rgba(255,255,255,0.25));
+  background: var(--accent-color, #0061e0) linear-gradient(to bottom, rgba(255,255,255,0.125), rgba(255,255,255,0.25));
 }
 
 [data-accent-scheme="light"] button.recommend:hover,
 [data-accent-scheme="light"] .bb-button.recommend:hover {
-  background: var(--accent-color, #0061e0) linear-gradient(0deg, rgba(0,0,0,0.125), rgba(0,0,0,0.125));
+  background: var(--accent-color, #0061e0) linear-gradient(to bottom, rgba(0,0,0,0.125), transparent);
 }
 
 [data-accent-scheme="light"] button.recommend:active,
 [data-accent-scheme="light"] .bb-button.recommend:active {
-  background: var(--accent-color, #0061e0) linear-gradient(0deg, rgba(0,0,0,0.25), rgba(0,0,0,0.25));
+  background: var(--accent-color, #0061e0) linear-gradient(to bottom, rgba(0,0,0,0.125), rgba(0,0,0,0.25));
 }
 
 /* Danger */
 button.danger,
 .danger.bb-button {
-  background-color: #c00040 !important;
-  color: rgba(255,255,255,0.75) !important;
+  background: linear-gradient(to bottom, #d01050, #c00040);
+  color: rgba(255,255,255,0.75);
 }
 
 button.danger:hover,
 .danger.bb-button:hover {
-  background-color: #b00030 !important;
+  background: linear-gradient(to bottom, #e02060, #d01050);
 }
 
 button.danger:active,
 .danger.bb-button:active {
-  background-color: #a00020 !important;
+  background: linear-gradient(to bottom, #e02060, #f03070);
 }
 
 /* Pressed */
 button:hover,
 .bb-button:hover,
 .button:hover {
-  background-color: var(--button-background-plus, #d8dadd);
+  background: var(--button-background-plus, linear-gradient(to bottom, #d8dadd, #ccced2));
 }
 
 /* Focused */
@@ -98,7 +98,7 @@ button:focus-visible,
 button:active,
 .bb-button:active,
 .button:active {
-  background-color: var(--button-background-minus, #c8cacd);
+  background: var(--button-background-minus, linear-gradient(to bottom, #bcbec2, #c8cacd));
 }
 
 /* Icons */
@@ -125,18 +125,20 @@ button[data-icon]:before,
   position: absolute;
   top: 50%;
   margin-top: -1.5rem;
-  offset-inline-start: 0.5rem;
   line-height: 3rem;
   text-align: center;
   font-size: 2rem;
   width: 3rem;
 }
-
-/* Pressed with dark skin */
-.skin-dark li button:active,
-.skin-dark li .bb-button:active,
-.skin-dark li .button:active {
-  background-color: #00aacc;
+html[dir="ltr"] button[data-icon]:before,
+html[dir="ltr"] .bb-button[data-icon]:before,
+html[dir="ltr"] .button[data-icon]:before {
+  left: 0.5rem;
+}
+html[dir="rtl"] button[data-icon]:before,
+html[dir="rtl"] .bb-button[data-icon]:before,
+html[dir="rtl"] .button[data-icon]:before {
+  right: 0.5rem;
 }
 
 /* Disabled */
@@ -166,7 +168,7 @@ li .button {
   white-space: normal;
   line-height: 2rem;
   padding: 1rem 1.5rem;
-  background: var(--background, #e7e9ec);
+  background: var(--button-background-list, linear-gradient(to bottom, #e7e9ec, #dbddf0));
 }
 html[dir="ltr"] li button,
 html[dir="ltr"] li .bb-button,
@@ -253,7 +255,6 @@ li .button.icon-dialog:before {
   width: 0;
   height: 0;
   top: auto;
-  offset-inline-end: 0.4rem;
   bottom: 0.1rem;
   border-top: 0.7rem solid transparent;
   border-bottom: 0.7rem solid transparent;
@@ -263,11 +264,13 @@ li .button.icon-dialog:before {
 html[dir="ltr"] li button.icon-dialog:before,
 html[dir="ltr"] li .bb-button.icon-dialog:before,
 html[dir="ltr"] li .button.icon-dialog:before {
+  right: 0.4rem;
   transform: rotate(45deg);
 }
 html[dir="rtl"] li button.icon-dialog:before,
 html[dir="rtl"] li .bb-button.icon-dialog:before,
 html[dir="rtl"] li .button.icon-dialog:before {
+  left: 0.4rem;
   transform: rotate(-45deg);
 }
 
@@ -284,16 +287,34 @@ li .button[aria-disabled="true"].icon-dialog:before {
 .skin-dark li button,
 .skin-dark li .bb-button,
 .skin-dark li .button {
-  background-color: #454545;
+  background: linear-gradient(to bottom, #454545, #353535);
   border: none;
   color: var(--text-color-minus, #fff);
   font-weight: normal;
 }
 
-.skin-dark li button.icon-dialog:active:before,
-.skin-dark li .bb-button.icon-dialog:active:before,
-.skin-dark li .button.icon-dialog:active:before {
-  border-inline-start: 0.7rem solid #b2f2ff;
+.skin-dark li button:hover,
+.skin-dark li .bb-button:hover,
+.skin-dark li .button:hover {
+  background: linear-gradient(to bottom, #353535, #252525);
+}
+
+.skin-dark li button:active,
+.skin-dark li .bb-button:active,
+.skin-dark li .button:active {
+  background: linear-gradient(to bottom, #202020, #282828);
+}
+
+.skin-dark li button[data-icon="expand"]:before,
+.skin-dark li .bb-button[data-icon="expand"]:before,
+.skin-dark li .button[data-icon="expand"]:before {
+  color: #a6a6a6;
+}
+
+.skin-dark li button.icon-dialog:before,
+.skin-dark li .bb-button.icon-dialog:before,
+.skin-dark li .button.icon-dialog:before {
+  border-inline-start: 0.7rem solid #a6a6a6;
 }
 
 .skin-dark li button:disabled,
@@ -327,12 +348,12 @@ select {
   overflow: hidden;
   height: 4rem;
   border: none;
-  background: var(--background, #e7e9ec);
+  background: var(--button-background-list, linear-gradient(to bottom, #e7e9ec, #dbddf0));
   border-radius: 0.8rem;
 }
 
 .skin-dark select {
-  background-color: rgba(87, 87, 87, 0.8);
+  background: linear-gradient(to bottom, #454545, #353535);
   border: none;
   color: var(--text-color-minus, #fff);
 }

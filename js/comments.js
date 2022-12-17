@@ -37,7 +37,7 @@ function Comments(path, element, hasStars = false) {
   };
 
   function refreshComments() {
-    OrchidServices.getWithUpdate(path, (data) => {
+    OrchidServices.get(path).then((data) => {
       comments.innerHTML = '';
 
       if (data.comments == null) {
@@ -347,6 +347,7 @@ function Comments(path, element, hasStars = false) {
       }
       inputbox.value = '';
       OrchidServices.set(path, { comments: data.comments });
+      refreshComments();
     });
   };
 }
