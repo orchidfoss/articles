@@ -573,12 +573,12 @@ html[dir="rtl"] .content {
 }
 
 #upload-button {
-  background: var(--accent-color);
-  color: var(--accent-text-color);
+  background: var(--neumorphic-button-background);
+  color: var(--text-color);
   min-width: 5rem;
   height: 5rem;
   line-height: 5rem;
-  border-radius: 1.25rem;
+  border-radius: 2.5rem;
   display: inline-flex;
   padding: 0 1.5rem;
   box-sizing: border-box;
@@ -586,12 +586,19 @@ html[dir="rtl"] .content {
   font-size: 1.6rem;
   font-weight: normal;
   align-items: center;
-  margin: 0 0 1rem;
-  transition: box-shadow 0.2s ease;
+  margin: 0 0 1.5rem;
+  box-shadow: var(--neumorphic-button-shadow);
+  transition: transform 0.3s ease;
 }
 
 #upload-button:hover {
-  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.2), 0 0.2rem 0.3rem rgba(0,0,0,0.3);
+  filter: brightness(0.9);
+}
+
+#upload-button:active {
+  filter: brightness(0.8);
+  transform: scale(0.95);
+  transition: none;
 }
 
 #upload-button[data-icon]:before {
