@@ -311,7 +311,8 @@
   background: var(--button-background-minus);
 }
 
-* {
+*,
+::placeholder {
   font-family: 'Jali Arabic', system-ui, sans-serif;
 }
 
