@@ -399,7 +399,7 @@ button, input, select {
   position: fixed;
   top: 5rem;
   width: 320px;
-  padding: 1.5rem 1.5rem;
+  padding: 1rem 1.5rem 1.5rem;
   box-sizing: border-box;
   margin: 0;
   height: calc(100% - 5rem);
