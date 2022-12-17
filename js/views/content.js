@@ -1,15 +1,16 @@
 (function (exports) {
   "use strict";
 
-  exports.viewFunction['content'] = () => {
+  exports.viewFunction["content"] = () => {
+    window.history.pushState({ html: "", pageTitle: "" }, "", "?");
     if (navigator.onLine) {
       setTimeout(() => {
-        openContentView('loading-screen', false);
+        openContentView("loading-screen", false);
       });
-      posts.innerHTML = '';
+      posts.innerHTML = "";
 
       OrchidServices.getList("articles", function (data, id) {
-        openContentView('content', false);
+        openContentView("content", false);
         createPostCard(data, id, false);
         if (currentPost == id) {
           showPostInfo(data, id);
@@ -18,7 +19,7 @@
     }
   };
 
-  var currentPost = '';
+  var currentPost = "";
   var posts = document.getElementById("posts");
 
   var paramString = location.search.substring(1);

@@ -139,50 +139,16 @@
       <header data-l10n-id="submit"></header>
       <ul>
         <li class="vbox">
-          <p data-l10n-id="submit-icon"></p>
-          <input type="file" name="" id="submit-icon">
+          <p data-l10n-id="submit-content"></p>
+          <textarea name="" id="submit-content"></textarea>
         </li>
         <li class="vbox">
-          <p data-l10n-id="submit-manifest"></p>
-          <input type="file" name="" id="submit-manifest">
-        </li>
-        <li class="vbox">
-          <p data-l10n-id="submit-package"></p>
-          <input type="file" name="" id="submit-package">
-        </li>
-        <li class="vbox">
-          <p data-l10n-id="submit-categories"></p>
-          <input type="text" name="" id="submit-categories">
+          <p data-l10n-id="submit-images"></p>
+          <input type="file" name="" id="submit-images">
         </li>
         <li class="vbox">
           <p data-l10n-id="submit-tags"></p>
           <input type="text" name="" id="submit-tags">
-        </li>
-        <li class="active">
-          <label class="pack-switch reverse">
-            <input type="checkbox" id="submit-has-ads">
-            <span data-l10n-id="submit-hasAds"></span>
-          </label>
-        </li>
-        <li class="active">
-          <label class="pack-switch reverse">
-            <input type="checkbox" id="submit-has-tracking">
-            <span data-l10n-id="submit-hasTracking"></span>
-          </label>
-        </li>
-        <li class="vbox">
-          <p data-l10n-id="submit-ageRating"></p>
-          <select name="" id="submit-age-rating">
-            <option value="e" data-l10n-id="ageRating-e"></option>
-            <option value="e10plus" data-l10n-id="ageRating-e10plus"></option>
-            <option value="t" data-l10n-id="ageRating-t"></option>
-            <option value="m" data-l10n-id="ageRating-m"></option>
-            <option value="ao" data-l10n-id="ageRating-ao"></option>
-          </select>
-        </li>
-        <li class="vbox">
-          <p data-l10n-id="submit-price"></p>
-          <input type="number" name="" id="submit-price">
         </li>
       </ul>
       <ul>
@@ -214,12 +180,17 @@
       <div class="content-holder">
         <a href="#" class="author" id="post-author"></a>
         <div class="context" id="post-context"></div>
+        <div id="post-images" class="images"></div>
       </div>
       <nav>
         <button id="like-button" class="like-button" data-icon="like"></button>
         <button id="dislike-button" class="dislike-button" data-icon="dislike"></button>
-        <button id="share-button" class="share-button" data-icon="share"></button>
-        <button id="options-button" class="options-button" data-icon="options"></button>
+        <button id="share-button" class="share-button" data-icon="share">
+          <div role="title" class="bottom" data-l10n-id="post-share"></div>
+        </button>
+        <button id="options-button" class="options-button" data-icon="options">
+          <div role="title" class="bottom" data-l10n-id="post-options"></div>
+        </button>
       </nav>
     </div>
 

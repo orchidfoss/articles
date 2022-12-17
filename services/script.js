@@ -469,14 +469,15 @@ var OrchidServices = {
       });
     },
 
-    publishArticle: async function os_publishArticle(title, markdown) {
+    publishArticle: async function os_publishArticle(data) {
       var id = OrchidServices._generateUUID();
       OrchidServices.set('articles/' + id, {
         token: id,
         author_id: OrchidServices.userId(),
         published_at: Date.now(),
-        title: title,
-        content: markdown,
+        content: data.content,
+        tags: data.tags,
+        images: data.images,
         likes: [],
         dislikes: [],
         comments: []

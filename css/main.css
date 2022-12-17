@@ -1,17 +1,12 @@
 @font-face {
-  font-family: 'Readex Pro';
-  src: url(../fonts/Readex_Pro/ReadexPro-VariableFont_wght.ttf);
+  font-family: 'Jali Arabic';
+  src: url(../fonts/Jali_Arabic_Regular.ttf);
 }
 
 @font-face {
-  font-family: 'IBM Plex Sans Arabic';
-  src: url(../fonts/IBMPlexSansArabic-Regular.ttf);
-}
-
-@font-face {
-  font-family: 'IBM Plex Sans Arabic';
+  font-family: 'Jali Arabic';
   font-weight: bold;
-  src: url(../fonts/IBMPlexSansArabic-Bold.ttf);
+  src: url(../fonts/Jali_Arabic_Bold.ttf);
 }
 
 :root {
@@ -306,7 +301,7 @@
   line-height: 4rem;
   font-size: 1.6rem;
   font-weight: normal;
-  font-family: 'IBM Plex Sans Arabic', 'Noto Sans', 'Noto Naskh Arabic', system-ui;
+  font-family: 'Jali Arabic', system-ui, sans-serif;
   border: none;
   background: var(--button-background);
 }
@@ -327,7 +322,7 @@ html, body {
   margin: 0;
   padding: 0;
   font-size: 10px;
-  font-family: 'IBM Plex Sans Arabic', 'Noto Sans', 'Noto Naskh Arabic', system-ui;
+  font-family: 'Jali Arabic', system-ui, sans-serif;
   background: var(--background);
   scroll-behavior: smooth;
 }
@@ -342,7 +337,7 @@ body {
 }
 
 button, input, select {
-  font-family: 'IBM Plex Sans Arabic', 'Noto Sans', 'Noto Naskh Arabic', system-ui;
+  font-family: 'Jali Arabic', system-ui, sans-serif;
   font-size: 1.6rem;
 }
 
@@ -403,7 +398,7 @@ button, input, select {
   position: fixed;
   top: 5rem;
   width: 320px;
-  padding: 0.5rem 1.5rem;
+  padding: 1.5rem 1.5rem;
   box-sizing: border-box;
   margin: 0;
   height: calc(100% - 5rem);
@@ -425,7 +420,11 @@ button, input, select {
 
 #sidebar > ul {
   margin: 0;
-  padding: 0;
+  padding: 0.5rem;
+  background: var(--background-plus);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
 }
 
 #sidebar > ul li {
@@ -436,9 +435,8 @@ button, input, select {
 
 #sidebar > ul li a {
   width: 100%;
-  height: 4rem;
-  line-height: 4rem;
-  border-radius: 0.8rem;
+  height: 4.8rem;
+  line-height: 4.8rem;
   display: block;
   padding: 0 1.5rem;
   box-sizing: border-box;
@@ -446,7 +444,8 @@ button, input, select {
   color: var(--text-color);
   font-size: 1.6rem;
   font-weight: normal;
-  transition: box-shadow 0.2s ease;
+  position: relative;
+  border-radius: 1rem;
 }
 
 #sidebar > ul li a:hover {
@@ -457,20 +456,38 @@ button, input, select {
   background: var(--translucent-plus);
 }
 
+#sidebar > ul li a:after {
+  content: '';
+  position: absolute;
+  left: 1.5rem;
+  top: 0;
+  width: calc(100% - 3rem);
+  height: 100%;
+  border-bottom: solid 0.1rem rgba(0,0,0,0.125);
+}
+
+#sidebar > ul li:last-child a:after {
+  display: none;
+}
+
 #sidebar > ul li a[aria-selected="true"] {
-  background: var(--background-plus);
-  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
+  background: var(--translucent);
+  color: var(--accent-color);
   font-weight: bold;
 }
 
 #sidebar > ul li a[aria-selected="true"]:hover {
-  box-shadow: 0 1rem 2rem rgba(0,0,0,0.1);
+  background: var(--translucent-plus);
+}
+
+#sidebar > ul li a[aria-selected="true"]:active {
+  background: var(--translucent-minus);
 }
 
 #sidebar > ul li a[data-icon] {
   position: relative;
-  -moz-padding-start: 4rem;
-  padding-inline-start: 4rem;
+  -moz-padding-start: 4.8rem;
+  padding-inline-start: 4.8rem;
 }
 
 #sidebar > ul li a[data-icon]:before {
@@ -478,7 +495,7 @@ button, input, select {
   top: 0;
   height: 100%;
   font-size: 2rem;
-  margin: 0 1rem;
+  margin: 0 1.4rem;
 }
 html[dir="ltr"] #sidebar > ul li a[data-icon]:before {
   left: 0;
@@ -489,7 +506,7 @@ html[dir="rtl"] #sidebar > ul li a[data-icon]:before {
 
 #sidebar > ul li a > em {
   position: absolute;
-  top: 0.8rem;
+  top: 1.2rem;
   height: 2.4rem;
   line-height: 2.4rem;
   font-size: 1.6rem;

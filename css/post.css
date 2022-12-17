@@ -2,7 +2,7 @@
   width: calc(100% - 3rem);
   max-width: 1024px;
   margin: 1rem auto;
-  border-radius: 0.8rem;
+  border-radius: 1.5rem;
   background: var(--background-plus);
   text-decoration: none;
   color: var(--text-color);

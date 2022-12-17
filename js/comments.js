@@ -37,12 +37,13 @@ function Comments(path, element, hasStars = false) {
   };
 
   function refreshComments() {
-    if (data.comments == null) {
-      OrchidServices.set(path, { comments: [] });
-    }
-
     OrchidServices.getWithUpdate(path, (data) => {
       comments.innerHTML = '';
+
+      if (data.comments == null) {
+        OrchidServices.set(path, { comments: [] });
+        return;
+      }
       data.comments.forEach((comment, index) => {
         var element = document.createElement('li');
         comments.appendChild(element);
@@ -66,13 +67,8 @@ function Comments(path, element, hasStars = false) {
 
           if (udata.metadata.is_verified) {
             figCaption.classList.add('verified');
-          } else {
-            figCaption.classList.remove('verified');
           }
-        });
-
-        OrchidServices.get(path).then(function(udata) {
-          if (udata.author_id == comment.author_id) {
+          if (udata.token == comment.author_id) {
             figCaption.classList.add('author');
           }
         });
@@ -324,7 +320,13 @@ function Comments(path, element, hasStars = false) {
 
   form.onsubmit = (evt) => {
     evt.preventDefault();
-    OrchidServices.get(path).then((data) => {
+    OrchidServices.get(path).then(data => {
+      if (!data) {
+        var data = {
+          comments: []
+        };
+      }
+
       if (hasStars) {
         data.comments.push({
           author_id: OrchidServices.userId(),
@@ -343,6 +345,7 @@ function Comments(path, element, hasStars = false) {
           replies: []
         });
       }
+      inputbox.value = '';
       OrchidServices.set(path, { comments: data.comments });
     });
   };

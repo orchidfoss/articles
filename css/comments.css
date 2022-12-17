@@ -2,24 +2,23 @@
   width: calc(100% - 3rem);
   max-width: 1024px;
   margin: 1rem auto 1.5rem;
-  border-radius: 0.8rem;
+  border-radius: 1.5rem;
   background: var(--background-plus);
   box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
   overflow: hidden;
 }
 
 .comments-wrapper .comment-form {
-  width: calc(100% - 1.6rem);
+  width: calc(100% - 1rem);
   height: 8.4rem;
   display: flex;
-  background: rgba(0,0,0,0.05);
-  border-bottom: solid 0.1rem var(--background);
-  margin: 0.8rem;
+  background: var(--translucent);
+  margin: 0.5rem;
+  border-radius: 1rem;
 }
 
 .comments-wrapper .comment-form:focus-within {
-  box-shadow: inset 0 -0.1rem 0 var(--accent-color);
-  border-bottom-color: var(--accent-color);
+  outline: solid 0.1rem var(--accent-color);
 }
 
 .comments-wrapper .comment-form textarea {
@@ -38,6 +37,7 @@
   outline: none;
   color: var(--text-color);
   flex: 1;
+  box-shadow: none;
 }
 
 .comments-wrapper .comment-form button {
@@ -145,7 +145,7 @@
   width: 4rem;
   height: 4rem;
   border-radius: 50%;
-  background: #858585;
+  background: var(--background);
   -moz-margin-end: 1rem;
   margin-inline-end: 1rem;
 }

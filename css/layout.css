@@ -4,7 +4,7 @@
  * This file will replace lists.css
  * ------------------------------------ */
 
-html {
+ html {
   height: 100%;
 }
 
@@ -15,6 +15,7 @@ body {
   flex-direction: column;
   font-size: 18px;
   color: var(--text-color, #333);
+  overflow: hidden;
   background: var(--background, #e7e9ec);
 }
 
@@ -94,11 +95,13 @@ ul.gaia-list,
 .gaia-list ul {
   background: var(--background-plus, #fff);
   margin: 1rem auto;
-  border-radius: 0.8rem;
+  border-radius: 1.5rem;
   box-sizing: border-box;
   max-width: 768px;
   box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
   width: calc(100% - 3rem);
+  overflow: hidden;
+  padding: 0.5rem;
 }
 
 .gaia-list li {
@@ -108,6 +111,7 @@ ul.gaia-list,
   align-items: center;
   min-height: 40px;
   padding: 4px 15px;
+  border-radius: 1rem;
 }
 
 .gaia-list li:after {
@@ -117,7 +121,7 @@ ul.gaia-list,
   top: 0;
   bottom: 0;
   left: 15px;
-  border-bottom: 1px solid rgba(0,0,0,0.125);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
   pointer-events: none;
 }
 
@@ -127,12 +131,12 @@ ul.gaia-list,
 
 .gaia-list.active li:hover,
 .gaia-list li.active:hover {
-  background-color: var(--translucent);
+  background-color: var(--translucent, rgba(0, 0, 0, 0.05));
 }
 
 .gaia-list.active li:active,
 .gaia-list li.active:active {
-  background-color: var(--translucent-plus);
+  background-color: var(--translucent-plus, rgba(0, 0, 0, 0.1));
 }
 
 .gaia-list.active li:hover:after,
@@ -179,11 +183,6 @@ ul.gaia-list,
 }
 
 /* List elements */
-.gaia-list li p,
-.gaia-list li label {
-  -moz-margin-start: 15px;
-}
-
 .gaia-list li p:not(:first-of-type) {
   color: #858789;
   font-size: 15px;
@@ -210,7 +209,6 @@ ul.gaia-list,
   min-height: 40px;
   padding: 10px 0;
   margin: -10px 0;
-  -moz-margin-start: 15px;
 }
 
 .gaia-list label.vbox.pack-checkbox,
@@ -224,20 +222,22 @@ ul.gaia-list,
   -moz-margin-start: 0;
 }
 
-.gaia-list label.pack-checkbox span:after {
+html[dir="ltr"] .gaia-list label.pack-checkbox span:after {
   left: 11px;
 }
+html[dir="rtl"] .gaia-list label.pack-checkbox span:after {
+  right: 11px;
+}
 
-.gaia-list label.pack-checkbox.reverse span:after,
-.gaia-list label.pack-switch span:after {
+html[dir="ltr"] .gaia-list label.pack-checkbox.reverse span:after,
+html[dir="ltr"] .gaia-list label.pack-switch span:after {
   left: auto;
   right: 0;
 }
-
 html[dir="rtl"] .gaia-list label.pack-checkbox.reverse span:after,
 html[dir="rtl"] .gaia-list label.pack-switch span:after {
   left: 0;
-  right: unset;
+  right: auto;
 }
 
 .gaia-list label.pack-checkbox span,
@@ -358,3 +358,10 @@ html[dir="rtl"] .gaia-list label.pack-switch span:after {
   background-position: right 15px center;
 }
 
+/* ----------------------------------
+* Dark mode
+* ---------------------------------- */
+
+[data-theme="dark"] {
+  color: var(--text-color-minus, #fff);
+}
