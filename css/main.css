@@ -153,7 +153,7 @@
   /** Accent Color
    ---------------------------------------------------------*/
 
-  --accent-color: #00ddff;
+  --accent-color: #80c2ff;
   --accent-text-color: rgba(0,0,0,0.75);
   --focus-outline: 0.2rem solid var(--accent-color);
 
