@@ -1,0 +1,332 @@
+.slideshow-container {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  position: relative;
+  margin: 0 0 3rem;
+}
+
+.slideshow-container .holder {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slideshow-container .controls {
+  position: absolute;
+  left: 0;
+  top: calc(50% - 2rem);
+  width: 100%;
+  height: 4rem;
+  display: flex;
+}
+
+.slideshow-container .controls button {
+  width: 4rem;
+  height: 4rem;
+  line-height: 4rem;
+  border-radius: 0.6rem;
+  background: transparent;
+  border: none;
+  color: var(--color-secondary, #fff);
+  padding: 0 !important;
+}
+
+.slideshow-container .controls button:hover {
+  background: var(--translucent);
+}
+
+.slideshow-container .controls button:active {
+  background: var(--translucent-plus);
+}
+
+.slideshow-container .controls button[data-icon]:before {
+  font-size: 2rem;
+  position: static;
+  width: unset;
+  margin: 0;
+  height: 4rem;
+  line-height: 4rem;
+}
+
+.slideshow-container .controls .forward {
+  margin-inline-start: auto;
+}
+
+.slideshow-container .dots {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 1rem);
+  width: 100%;
+  height: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.slideshow-container .dots .dot {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 1rem;
+  box-sizing: border-box;
+  background: #858585;
+  margin-inline-end: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.slideshow-container .dots .dot:hover {
+  opacity: 0.75;
+}
+
+.slideshow-container .dots .dot:last-child {
+  margin: 0;
+}
+
+.slideshow-container .dots .dot.active {
+  opacity: 1;
+  width: 5rem;
+  position: relative;
+  overflow: hidden;
+  background: var(--color-primary, var(--text-color));
+}
+
+.slideshow-container .dots .dot.active::before {
+  content: '';
+  position: absolute;
+  margin: 0.2rem;
+  width: calc(var(--progress) - 0.6rem);
+  height: calc(100% - 0.4rem);
+  border-radius: 1rem;
+  background: var(--color-secondary, var(--accent-color));
+}
+
+.slideshow {
+  width: 100%;
+  height: 100%;
+  background: #000;
+  position: relative;
+  overflow: hidden;
+  position: absolute;
+
+  transition: all 0.3s ease 0.3s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.slideshow.current {
+  transition: all 0.3s ease;
+  opacity: 1;
+  visibility: visible;
+}
+
+.slideshow > img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: var(--background-plus);
+  animation: slideshow-image 1s cubic-bezier(0.2, 0.9, 0.1, 1);
+}
+
+@keyframes slideshow-image {
+  from {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.slideshow > div {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding: 1rem 4rem;
+  box-sizing: border-box;
+  font-size: 1.6rem;
+  color: var(--color-secondary, #fff);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+html[dir="ltr"] .slideshow > div {
+  left: 0;
+  background: linear-gradient(to right, var(--color-primary, rgba(0,0,0,0.75)), transparent);
+}
+html[dir="rtl"] .slideshow > div {
+  right: 0;
+  background: linear-gradient(to left, var(--color-primary, rgba(0,0,0,0.75)), transparent);
+}
+
+.slideshow > div > * {
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(32px);
+  visibility: hidden;
+}
+
+.slideshow.current > div > * {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+.slideshow > div > *:nth-child(1) {
+  transition-delay: 0.15s;
+}
+.slideshow > div > *:nth-child(2) {
+  transition-delay: 0.3s;
+}
+.slideshow > div > *:nth-child(3) {
+  transition-delay: 0.45s;
+}
+.slideshow > div > *:nth-child(4) {
+  transition-delay: 0.6s;
+}
+
+.slideshow > div img {
+  width: 100%;
+  margin: 0 0 1rem;
+}
+
+.slideshow > div h1 {
+  font-size: 3rem;
+  font-weight: normal;
+  font-family: 'Readex Pro', 'IBM Plex Sans Arabic', 'Noto Sans', 'Noto Naskh Arabic', system-ui;
+  margin: 0;
+  max-width: 400px;
+}
+
+.slideshow > div p {
+  font-size: 1.6rem;
+  font-weight: normal;
+  margin: 0;
+  max-width: 400px;
+  line-height: 2.2rem;
+}
+
+.slideshow > div a {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: var(--color-primary, var(--accent-text-color));
+  display: inline-block;
+  text-align: start;
+  text-decoration: none;
+  background: var(--color-secondary, var(--accent-color));
+  height: 3.4rem;
+  line-height: 3.4rem;
+  font-size: 1.6rem;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+  margin: 1rem 0 0;
+  border-radius: 2rem;
+  text-shadow: none;
+}
+
+.slideshow > div a > span {
+  transition: all 0.2s ease;
+}
+
+.slideshow > div a:hover > span {
+  box-shadow: 0 0.2rem 0 currentColor;
+}
+
+.slideshow > div a:after {
+  content: '';
+  font-size: 1.6rem;
+  font-family: 'gaia-icons';
+  -moz-margin-start: 0.5rem;
+  margin-inline-start: 0.5rem;
+  position: relative;
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+html[dir="ltr"] .slideshow > div a:after {
+  content: 'forward';
+}
+html[dir="rtl"] .slideshow > div a:after {
+  content: 'back';
+}
+
+html[dir="ltr"] .slideshow > div a:hover:after {
+  transform: translateX(0.5rem);
+}
+html[dir="rtl"] .slideshow > div a:hover:after {
+  transform: translateX(-0.5rem);
+}
+
+@media screen and (orientation: landscape) {
+  .slideshow-container {
+    width: calc(100% - 2rem);
+    max-width: 1024px;
+    margin: 0.5rem 1rem 3.5rem;
+    aspect-ratio: 2 / 1;
+  }
+
+  .slideshow {
+    border-radius: 1.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
+  }
+
+  .slideshow > div {
+    padding: 32px 48px;
+  }
+
+  .slideshow > div img {
+    width: unset;
+    height: 5rem;
+  }
+}
+
+@media screen and (orientation: landscape) and (min-width: 1280px) {
+  .slideshow-container {
+    width: calc(100% - 3rem);
+    margin: 0.5rem 1.5rem 4rem;
+    aspect-ratio: 2 / 1;
+  }
+
+  .slideshow-container .controls {
+    left: -1.5rem;
+    width: calc(100% + 3rem);
+  }
+
+  .slideshow-container .controls button {
+    border-radius: 2rem;
+    background: var(--button-background);
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.25);
+    color: var(--text-color);
+  }
+
+  .slideshow-container .controls button:hover {
+    background: var(--button-background-plus);
+  }
+
+  .slideshow-container .controls button:active {
+    background: var(--button-background-minus);
+  }
+
+  .slideshow {
+    border-radius: 1.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
+  }
+
+  /* -186 -61 -312 -151 -63 -347 */
+  .slideshow > div {
+    padding: 64px;
+  }
+
+  .slideshow > div a {
+    margin: 1rem 0 0;
+    height: 4rem;
+    line-height: 4rem;
+  }
+
+  .slideshow > div h1 {
+    font-size: 5rem;
+    font-weight: normal;
+  }
+}

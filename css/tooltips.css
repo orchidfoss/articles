@@ -1,0 +1,95 @@
+[role="title"] {
+  position: absolute;
+  background-color: #4d4d4d;
+  color: #fff;
+  border-radius: 1rem;
+  padding: 1rem 1.5rem;
+  box-sizing: border-box;
+  filter: drop-shadow(0 1rem 2rem rgba(0,0,0,0.2)) drop-shadow(0 0.6rem 1.5rem rgba(0,0,0,0.2)) drop-shadow(0 0.2rem 0.4rem rgba(0,0,0,0.3));
+  font-size: 1.6rem;
+  font-weight: normal;
+  line-height: 2.2rem;
+  width: max-content;
+  display: block;
+  pointer-events: none;
+  z-index: 100;
+  text-transform: none;
+  white-space: nowrap;
+
+  transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s;
+  transform: var(--transform);
+  opacity: 0;
+  visibility: hidden;
+}
+
+:hover > [role="title"] {
+  transition-delay: 0.5s;
+  transform: var(--transform-hover);
+  opacity: 1;
+  visibility: visible;
+}
+
+[role="title"]:after {
+  content: '';
+  background-color: #4d4d4d;
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  transform: rotate(45deg);
+}
+
+/* Left */
+html[dir="ltr"] [role="title"].start,
+html[dir="rtl"] [role="title"].end {
+  top: 50%;
+  --transform: translateY(-50%) translateX(1rem);
+  --transform-hover: translateY(-50%);
+  right: calc(100% + 1rem);
+}
+
+html[dir="ltr"] [role="title"].start:after,
+html[dir="rtl"] [role="title"].end:after {
+  top: calc(50% - 0.5rem);
+  right: -0.5rem;
+}
+
+/* Right */
+html[dir="rtl"] [role="title"].start,
+html[dir="ltr"] [role="title"].end {
+  top: 50%;
+  --transform: translateY(-50%) translateX(-1rem);
+  --transform-hover: translateY(-50%);
+  left: calc(100% + 1rem);
+}
+
+html[dir="rtl"] [role="title"].start:after,
+html[dir="ltr"] [role="title"].end:after {
+  top: calc(50% - 0.5rem);
+  left: -0.5rem;
+}
+
+/* Top */
+[role="title"].top {
+  left: 50%;
+  --transform: translateX(-50%) translateY(1rem);
+  --transform-hover: translateX(-50%);
+  bottom: calc(100% + 1rem);
+}
+
+[role="title"].top:after {
+  left: calc(50% - 0.5rem);
+  bottom: -0.5rem;
+}
+
+/* Bottom */
+[role="title"].bottom {
+  left: 50%;
+  --transform: translateX(-50%) translateY(-1rem);
+  --transform-hover: translateX(-50%);
+  top: calc(100% + 1rem);
+}
+
+[role="title"].bottom:after {
+  left: calc(50% - 0.5rem);
+  top: -0.5rem;
+}

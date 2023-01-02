@@ -1,0 +1,367 @@
+/* ------------------------------------
+ * Layout.css will allow us creating
+ * easy structures using flexbox.
+ * This file will replace lists.css
+ * ------------------------------------ */
+
+ html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  color: var(--text-color, #333);
+  overflow: hidden;
+  background: var(--background, #e7e9ec);
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+p {
+  margin: 0;
+  line-height: 22px
+}
+
+/* Horizontal layout */
+.hbox {
+  display: flex;
+  flex-direction: row;
+}
+
+.hbox.left { justify-content: flex-start; }
+.hbox.center { justify-content: center; }
+.hbox.right { justify-content: flex-end; }
+.hbox.top { align-items: flex-start; }
+.hbox.middle { align-items: center; }
+.hbox.bottom { align-items: flex-end; }
+
+.hbox > .self-top { align-self: flex-start; }
+.hbox > .self-middle { align-self: center; }
+.hbox > .self-bottom { align-self: flex-end; }
+
+/* Vertical layout */
+.vbox {
+  display: flex;
+  flex-direction: column;
+}
+
+.vbox.left { align-items: flex-start; }
+.vbox.center { align-items: center; }
+.vbox.right { align-items: flex-end; }
+.vbox.top { justify-content: flex-start; }
+.vbox.middle { justify-content: center; }
+.vbox.bottom { justify-content: flex-end; }
+
+.vbox > .self-left { align-self: flex-start; }
+.vbox > .self-center { align-self: center; }
+.vbox > .self-right { align-self: flex-end; }
+
+/*
+ * Layout properties
+ */
+
+.fit {
+  flex: 1;
+}
+
+.scroll {
+  overflow: auto;
+}
+
+.fit.two   { flex: 2; }
+.fit.three { flex: 3; }
+.fit.four  { flex: 4; }
+.fit.five  { flex: 5; }
+.fit.six   { flex: 6; }
+
+/*
+ * Elements
+ */
+
+/* Lists */
+.gaia-list {
+  font-size: 16px;
+}
+
+ul.gaia-list,
+.gaia-list ul {
+  background: var(--background-plus, #fff);
+  margin: 1rem auto;
+  border-radius: 1.5rem;
+  box-sizing: border-box;
+  max-width: 768px;
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
+  width: calc(100% - 3rem);
+  overflow: hidden;
+  padding: 0.5rem;
+}
+
+.gaia-list li {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-height: 40px;
+  padding: 4px 15px;
+  border-radius: 1rem;
+}
+
+.gaia-list li:after {
+  position: absolute;
+  content: "";
+  right: 15px;
+  top: 0;
+  bottom: 0;
+  left: 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  pointer-events: none;
+}
+
+.gaia-list li:last-of-type:after {
+  display: none;
+}
+
+.gaia-list.active li:hover,
+.gaia-list li.active:hover {
+  background-color: var(--translucent, rgba(0, 0, 0, 0.05));
+}
+
+.gaia-list.active li:active,
+.gaia-list li.active:active {
+  background-color: var(--translucent-plus, rgba(0, 0, 0, 0.1));
+}
+
+.gaia-list.active li:hover:after,
+.gaia-list.active li:active:after,
+.gaia-list li.active:hover:after,
+.gaia-list li.active:active:after {
+  display: none;
+}
+
+
+.gaia-list li.vbox {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* List header */
+.gaia-list header {
+  padding: 0 3rem;
+  margin: 0;
+  font-size: 16px;
+  height: 30px;
+  line-height: 30px;
+  font-weight: bold;
+  color: var(--accent-color, #0061e0);
+  text-transform: uppercase;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  background: var(--background, #e7e9ec);
+  margin: 1rem auto -1rem;
+  position: relative;
+  max-width: 788px;
+  box-sizing: border-box;
+}
+
+.gaia-list.sticky header {
+  position: sticky;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  overflow: visible;
+}
+
+/* List elements */
+.gaia-list li p:not(:first-of-type) {
+  color: #858789;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.gaia-list li p em {
+  font-size: 15px;
+  font-style: normal;
+}
+
+.gaia-list li p time {
+  margin-right: 3px;
+  text-transform: uppercase;
+}
+
+.gaia-list label.pack-checkbox,
+.gaia-list label.pack-switch {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  height: auto;
+  min-height: 40px;
+  padding: 10px 0;
+  margin: -10px 0;
+}
+
+.gaia-list label.vbox.pack-checkbox,
+.gaia-list label.vbox.pack-switch {
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.gaia-list label.pack-checkbox:not(.reverse) {
+  -moz-padding-start: 32px;
+  -moz-margin-start: 0;
+}
+
+html[dir="ltr"] .gaia-list label.pack-checkbox span:after {
+  left: 11px;
+}
+html[dir="rtl"] .gaia-list label.pack-checkbox span:after {
+  right: 11px;
+}
+
+html[dir="ltr"] .gaia-list label.pack-checkbox.reverse span:after,
+html[dir="ltr"] .gaia-list label.pack-switch span:after {
+  left: auto;
+  right: 0;
+}
+html[dir="rtl"] .gaia-list label.pack-checkbox.reverse span:after,
+html[dir="rtl"] .gaia-list label.pack-switch span:after {
+  left: 0;
+  right: auto;
+}
+
+.gaia-list label.pack-checkbox span,
+.gaia-list label.pack-switch span,
+.gaia-list label p {
+  word-wrap: break-word;
+  width: 100%;
+}
+
+.gaia-list label.pack-checkbox.reverse span,
+.gaia-list label.pack-checkbox.reverse p {
+  width: calc(100% - 30px);
+}
+
+.gaia-list label.pack-switch span,
+.gaia-list label.pack-switch p {
+  width: calc(100% - 70px);
+}
+
+.gaia-list label p {
+  color: #858789;
+  font-size: 15px;
+  line-height: 20px;
+  -moz-margin-start: 0;
+}
+
+.gaia-list li.icon {
+  -moz-padding-start: 40px;
+  background-position: left 15px center;
+  background-repeat: no-repeat;
+  background-size: 30px;
+}
+
+.gaia-list [data-type=img],
+.gaia-list li img {
+  display: block;
+  overflow: hidden;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  margin-top: 0;
+  box-sizing: border-box;
+  background: transparent center center / cover;
+  position: relative;
+}
+
+.gaia-list li button,
+.gaia-list li .button,
+.gaia-list li input {
+  margin: 0;
+}
+
+.gaia-list li button + button,
+.gaia-list li p + button,
+.gaia-list li p + .button,
+.gaia-list li button + p,
+.gaia-list li .button + p,
+.gaia-list li label + button,
+.gaia-list li label + .button {
+  margin-top: 10px;
+}
+
+/* Footer */
+.gaia-footer {
+  border-top: 1px solid #e7e9ec;
+  background-color: var(--background, #fff);
+  padding: 10px 15px;
+  display: flex;
+}
+
+.gaia-footer p {
+  margin: 0 15px 10px;
+  word-break: break-all;
+  text-align: center;
+  color: #858789;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.gaia-footer button,
+.gaia-footer .button {
+  margin: 0 0 0 15px;
+}
+
+.gaia-footer button:first-of-type,
+.gaia-footer .button:first-of-type {
+  margin-left: 0;
+}
+
+/*
+ * Skins
+ */
+
+.skin-comms .gaia-list header {
+  color: #4997a7;
+}
+
+.skin-organic .gaia-list header {
+  color: #4d4d4d;
+}
+
+
+/**
+ * Right-to-Left layout
+ */
+.gaia-list:-moz-dir(rtl) label.pack-checkbox span:after {
+  left: unset;
+  right: 10px;
+}
+
+.gaia-list:-moz-dir(rtl) label.pack-checkbox.reverse span:after,
+.gaia-list:-moz-dir(rtl) label.pack-switch span:after {
+  left: 0;
+  right: unset;
+}
+
+.gaia-list:-moz-dir(rtl) li.icon {
+  background-position: right 15px center;
+}
+
+/* ----------------------------------
+* Dark mode
+* ---------------------------------- */
+
+[data-theme="dark"] {
+  color: var(--text-color-minus, #fff);
+}

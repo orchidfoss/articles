@@ -1,0 +1,32 @@
+#settings h1 {
+  margin: 0 auto;
+  padding: 0;
+  font-size: 2.4rem;
+  font-weight: normal;
+  height: 4rem;
+  line-height: 5rem;
+  color: var(--text-color);
+  background: var(--background);
+  width: calc(100% - 3rem);
+  max-width: 768px;
+  display: block;
+}
+
+#settings label {
+  width: 100%;
+}
+
+#settings #settings-profile img + .vbox {
+  margin-inline-start: 1rem;
+}
+
+#settings .copyright {
+  width: calc(100% - 3rem);
+  max-width: 768px;
+  display: block;
+  margin: 1rem auto;
+  opacity: 0.5;
+  color: var(--text-color);
+  font-size: 1.6rem;
+  padding: 0;
+}

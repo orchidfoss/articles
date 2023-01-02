@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 92 27"
+   width="92"
+   height="27"
+   version="1.1"
+   id="svg6"
+   sodipodi:docname="background_off.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs10">
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Drop Shadow"
+       id="filter22"
+       x="-0.14117647"
+       y="-0.14117647"
+       width="1.2823529"
+       height="1.3411765">
+      <feFlood
+         flood-opacity="0.25098"
+         flood-color="rgb(0,0,0)"
+         result="flood"
+         id="feFlood12" />
+      <feComposite
+         in="flood"
+         in2="SourceGraphic"
+         operator="in"
+         result="composite1"
+         id="feComposite14" />
+      <feGaussianBlur
+         in="composite1"
+         stdDeviation="1"
+         result="blur"
+         id="feGaussianBlur16" />
+      <feOffset
+         dx="0"
+         dy="1"
+         result="offset"
+         id="feOffset18" />
+      <feComposite
+         in="SourceGraphic"
+         in2="offset"
+         operator="over"
+         result="composite2"
+         id="feComposite20" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="namedview8"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="13.26087"
+     inkscape:cx="45.962295"
+     inkscape:cy="13.536066"
+     inkscape:window-width="1600"
+     inkscape:window-height="826"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg6" />
+  <linearGradient id="g1" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#282a2c" stop-opacity="1" />
+    <stop offset="100%" stop-color="#323436" stop-opacity="1" />
+  </linearGradient>
+  <path
+     d="M 0 0 L 92 0 L 92 27 L 0 27 L 0 0"
+     fill="url(#g1)"
+     id="path2" />
+  <path
+     d="M46 5A1 1 0 0046 22 1 1 0 0046 5"
+     fill="#fff"
+     id="path4"
+     style="filter:url(#filter22)" />
+</svg>

@@ -1,0 +1,44 @@
+/* Some BiDi-proof icons 
+ * In the future, we might handle this at the font level, see 
+ * https://bugzilla.mozilla.org/show_bug.cgi?id=1214127 
+ */
+
+html[dir="rtl"] [data-icon="back"]:before {
+  transform: rotate(180deg);
+}
+
+html[dir="rtl"] [data-icon="forward"]:before {
+  transform: rotate(180deg);
+}
+
+html[dir="rtl"] [data-icon="back-light"]:before {
+  transform: rotate(180deg);
+}
+
+html[dir="rtl"] [data-icon="forward-light"]:before {
+  transform: rotate(180deg);
+}
+
+html[dir="rtl"] [data-icon="arrow-back"]:before {
+  transform: rotate(180deg);
+}
+
+html[dir="rtl"] [data-icon="arrow-forward"]:before {
+  transform: rotate(180deg);
+}
+
+html[dir="rtl"] [data-icon="clear-input"]:before {
+  transform: rotate(180deg);
+}
+
+html[dir="rtl"] [data-icon="expand"]:before {
+  transform: rotate(180deg);
+}
+
+html[dir="rtl"] [data-icon="send"]:before {
+  transform: rotate(180deg);
+}
+
+html[dir="rtl"] [data-icon="edit"]:before {
+  transform: rotate(180deg);
+}

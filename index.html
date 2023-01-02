@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="icons/articles_16.png" type="image/x-icon" sizes="16x16">
+  <link rel="shortcut icon" href="icons/articles_32.png" type="image/x-icon" sizes="24x24 32x32">
+  <link rel="shortcut icon" href="icons/articles_48.png" type="image/x-icon" sizes="40x40 48x48">
+  <link rel="shortcut icon" href="icons/articles_64.png" type="image/x-icon" sizes="56x56 64x64">
+  <link rel="shortcut icon" href="icons/articles_128.png" type="image/x-icon" sizes="84x84 98x98 100x100 112x112 126x126 128x128">
+  <link rel="shortcut icon" href="icons/articles_256.png" type="image/x-icon" sizes="256x256">
+  <link rel="shortcut icon" href="icons/articles.svg" type="image/x-icon" sizes="284x284 512x512">
+  <title data-l10n-id="title">Orchid • Articles</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="var(--background, #e7e7e7)">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Orchid" />
+  <meta property="og:title" content="Articles" />
+  <meta property="og:description" content="Post, blog and share the things you like." />
+  <meta property="og:url" content="https://orchidfoss.github.io/articles/" />
+  <meta property="og:image" content="images/thumbnail.svg" />
+  <meta name="title" content="Orchid Articles" />
+  <meta name="description" content="Post, blog and share the things you like." />
+  <meta name="keywords" content="MortCodesWeb, Orchid Articles, OS, Gonk, Gecko, Web, WOS, Aluminum, AluminumOS, Vulpes, VulpOS, Mort, MORTADA_KILLER0, MORTADA KILLER0, Posts" />
+  <meta property="twitter:card" content="website">
+  <meta property="twitter:site" content="@orchid_articles" />
+  <meta property="twitter:title" content="Orchid Articles" />
+  <meta property="twitter:description" content="Post, blog and share the things you like." />
+  <meta property="twitter:url" content="https://orchidfoss.github.io/articles/" />
+  <meta property="twitter:image" content="images/thumbnail.svg" />
+  <link rel="stylesheet" href="lib/gaia-icons/gaia-icons.css">
+  <link rel="stylesheet" href="lib/gaia-icons/bidi-helper.css">
+  <link rel="stylesheet" href="css/splashscreen.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/warning.css">
+  <link rel="stylesheet" href="css/slideshow.css">
+  <link rel="stylesheet" href="css/filters.css">
+  <link rel="stylesheet" href="css/posts.css">
+  <link rel="stylesheet" href="css/comments.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/switches.css">
+  <link rel="stylesheet" href="css/seekbars.css">
+  <link rel="stylesheet" href="css/buttons.css">
+  <link rel="stylesheet" href="css/rating_graphs.css">
+  <link rel="stylesheet" href="css/input_areas.css">
+  <link rel="stylesheet" href="css/submit_tags.css">
+  <link rel="stylesheet" href="css/tooltips.css">
+  <link rel="stylesheet" href="css/dropdown.css">
+
+  <!-- View Styles -->
+  <link rel="stylesheet" href="css/submit.css">
+  <link rel="stylesheet" href="css/post.css">
+  <link rel="stylesheet" href="css/featured.css">
+  <link rel="stylesheet" href="css/history.css">
+  <link rel="stylesheet" href="css/settings.css">
+
+  <script src="http://www.google.com/jsapi?key=AIzaSyA5m1Nc8ws2BbmPRwKu5gFradvD_hgq6G0" type="text/javascript"></script>
+  <script defer src="services/script.js" type="module"></script>
+  <script src="lib/smooth-scrollbar.js"></script>
+  <script src="lib/plugins/overscroll.js"></script>
+  <script defer src="js/main.js"></script>
+  <script defer src="js/languages.js"></script>
+  <script defer src="js/dark_mode.js"></script>
+  <script defer src="js/comments.js"></script>
+  <script defer src="js/views.js"></script>
+  <script defer src="js/file_data.js"></script>
+  <script defer src="js/light_or_dark.js"></script>
+  <script defer src="js/color_picker.js"></script>
+  <script defer src="js/search_results.js"></script>
+  <script defer src="js/posts.js"></script>
+  <script defer src="js/submit_tags.js"></script>
+  <script defer src="js/dropdown.js"></script>
+
+  <!-- View Scripts -->
+  <script defer src="js/views/submit.js"></script>
+  <script defer src="js/views/content.js"></script>
+  <script defer src="js/views/post.js"></script>
+  <script defer src="js/views/featured.js"></script>
+  <script defer src="js/views/history.js"></script>
+  <script defer src="js/views/settings.js"></script>
+
+  <!-- Dropdown Scripts -->
+  <script defer src="js/dropdowns/main.js"></script>
+  <script defer src="js/dropdowns/help.js"></script>
+
+  <!-- Localization -->
+  <script src="js/l10n.js"></script>
+  <meta name="defaultLanguage" content="en-US">
+  <meta name="availableLanguages" content="en-US, af, ga, sq, it, ar, ja, az, kn, eu, ko, bn, la, be, lv, bg, lt, ca, mk, zh, ms, mt, hr, no, cs, fa, da, pl, nl, pt, ro, eo, ru, et, sr, tl, sk, fi, sl, fr, es, gl, sw, ka, sv, de, ta, el, te, gu, th, ht, tr, uk, hi, ur, hu, vi, is, cy, id, yi">
+  <link rel="localization" href="locales/main.{locale}.properties">
+</head>
+<body>
+  <div id="splashscreen">
+    <div class="progress"></div>
+  </div>
+
+  <div id="offline-message">
+    <div class="container">
+      <h1 data-l10n-id="offline-title"></h1>
+      <p data-l10n-id="offline-detail"></p>
+      <menu>
+        <button class="settings-button" data-l10n-id="open-settings"></button>
+        <button class="reload-button recommend" data-l10n-id="reload"></button>
+      </menu>
+    </div>
+  </div>
+
+  <header class="header" id="header">
+    <a href="#" id="back-button" data-icon="back"></a>
+    <a href="#" id="toggle-sidebar-button" data-icon="menu"></a>
+    <a href="#" class="logo"></a>
+    <form action="" id="searchbox" autocomplete="off">
+      <div class="search">
+        <input type="text" data-l10n-id="type-here-to-search" id="searchbox-input">
+        <button type="reset" data-icon="close"></button>
+      </div>
+      <ul class="results" id="search-results"></ul>
+    </form>
+    <h1></h1>
+    <a href="#" id="help-button" data-icon="help"></a>
+    <a href="#" id="profile-button">
+      <img src="" alt="" id="profile-avatar">
+    </a>
+    <a href="#" id="options-button" data-icon="options"></a>
+  </header>
+
+  <div id="options-dropdown" class="dropdown">
+    <div class="dropdown-view" id="options-dropdown-main">
+      <figure id="options-dropdown-profile">
+        <img src="" alt="" id="options-dropdown-profile-avatar">
+        <figcaption id="options-dropdown-profile-username"></figcaption>
+      </figure>
+      <ul>
+        <!-- No Account Buttons -->
+        <li id="options-dropdown-login" data-icon="user" data-l10n-id="dropdown-login"></li>
+        <li id="options-dropdown-signup" data-icon="email-move" data-l10n-id="dropdown-signup"></li>
+        <!-- Account Buttons -->
+        <li id="options-dropdown-switch-user" data-icon="sync" data-l10n-id="dropdown-switchUser"></li>
+        <li id="options-dropdown-logout" data-icon="email-forward" data-l10n-id="dropdown-logout"></li>
+        <!-- Other Buttons -->
+        <li class="separator"></li>
+        <li id="options-dropdown-settings" data-icon="settings" data-l10n-id="dropdown-settings"></li>
+        <li id="options-dropdown-terms" data-icon="file" data-l10n-id="dropdown-terms"></li>
+        <li id="options-dropdown-privacy" data-icon="accessibility" data-l10n-id="dropdown-privacy"></li>
+        <li id="options-dropdown-guidelines" data-icon="flag" data-l10n-id="dropdown-guidelines"></li>
+        <li class="separator"></li>
+        <li id="options-dropdown-help" data-icon="help" data-l10n-id="dropdown-help"></li>
+        <li id="options-dropdown-feedback" data-icon="sms" data-l10n-id="dropdown-feedback"></li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="help-dropdown" class="dropdown">
+    <div class="dropdown-view" id="help-dropdown-main">
+      <header>
+        <h1 data-l10n-id="dropdown-help"></h1>
+      </header>
+      <ul>
+        <li id="help-dropdown-report" data-icon="help" data-l10n-id="dropdown-help-report"></li>
+        <li id="help-dropdown-media" data-icon="help" data-l10n-id="dropdown-help-media"></li>
+        <li id="help-dropdown-more" data-icon="help" data-l10n-id="dropdown-help-more"></li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="post-dropdown" class="dropdown">
+    <div class="dropdown-view" id="post-dropdown-main">
+      <ul>
+        <li id="post-dropdown-repost" data-icon="reload" data-l10n-id="dropdown-post-repost"></li>
+        <li id="post-dropdown-reply" data-icon="email-reply" data-l10n-id="dropdown-post-reply"></li>
+        <li id="post-dropdown-report" data-icon="forbidden" data-l10n-id="dropdown-post-report"></li>
+        <li id="post-dropdown-delete" data-icon="delete" data-l10n-id="dropdown-post-delete"></li>
+      </ul>
+    </div>
+  </div>
+
+  <nav id="sidebar">
+    <a href="#" id="upload-button" data-icon="add" data-l10n-id="nav-upload"></a>
+    <ul>
+      <li><a href="#" data-icon="apps" data-l10n-id="nav-allPosts" id="sidebar-allposts" aria-selected="true"></a></li>
+      <li><a href="#" data-icon="auto-enhance-spark" data-l10n-id="nav-featured" id="sidebar-featured"></a></li>
+      <li><a href="#" data-icon="history" data-l10n-id="nav-history" id="sidebar-history"></a></li>
+    </ul>
+
+    <header data-l10n-id="nav-personal"></header>
+    <ul>
+      <li><a href="#" data-icon="settings" data-l10n-id="nav-settings" id="sidebar-settings"></a></li>
+    </ul>
+  </nav>
+
+  <main id="submit" class="content">
+    <div class="gaia-list">
+      <header data-l10n-id="submit"></header>
+      <ul>
+        <li class="vbox">
+          <p data-l10n-id="submit-content"></p>
+          <textarea name="" id="submit-content"></textarea>
+        </li>
+        <li class="vbox">
+          <p data-l10n-id="submit-images"></p>
+          <input type="file" name="" id="submit-images" multiple>
+        </li>
+        <li class="vbox">
+          <p data-l10n-id="submit-tags"></p>
+          <input type="text" name="" id="submit-tags">
+        </li>
+      </ul>
+      <ul>
+        <li id="submit-button" class="active" data-l10n-id="submit"></li>
+      </ul>
+    </div>
+  </main>
+
+  <main id="content" class="content">
+    <div class="warning">
+      <div class="message">
+        <img src="icons/articles.svg" alt="">
+        <div>
+          <span data-l10n-id="title"></span>
+          <span data-l10n-id="use-articles-app"></span>
+        </div>
+      </div>
+      <a href="app://articles.gaiamobile.org/index.html" target="_blank" data-l10n-id="open-articles"></a>
+    </div>
+
+    <div id="posts"></div>
+  </main>
+
+  <main id="post" class="content">
+    <div class="post-object">
+      <div class="icon-holder">
+        <img src="" alt="" id="post-avatar">
+      </div>
+      <div class="content-holder">
+        <a href="#" class="author" id="post-author"></a>
+        <div class="context" id="post-context"></div>
+        <div id="post-images" class="images"></div>
+      </div>
+      <nav>
+        <button id="like-button" class="like-button" data-icon="like"></button>
+        <button id="dislike-button" class="dislike-button" data-icon="dislike"></button>
+        <button id="share-button" class="share-button" data-icon="share">
+          <div role="title" class="bottom" data-l10n-id="post-share"></div>
+        </button>
+        <button id="options-button" class="options-button" data-icon="options">
+          <div role="title" class="bottom" data-l10n-id="post-options"></div>
+        </button>
+      </nav>
+    </div>
+
+    <div class="comments-wrapper" id="post-comments">
+      <form action="" class="comment-form">
+        <textarea data-l10n-id="post-commentInput"></textarea>
+        <button type="reset" data-icon="close"></button>
+        <button type="submit" data-icon="send"></button>
+      </form>
+
+      <a href="#" class="expand-button" data-icon="expand-chevron">
+        <span data-l10n-id="show-more"></span>
+      </a>
+      <ul></ul>
+    </div>
+  </main>
+
+  <main id="featured" class="content"></main>
+
+  <main id="history" class="content">
+    <id id="history-timeline"></id>
+  </main>
+
+  <main id="settings" class="content">
+    <h1 data-l10n-id="settings"></h1>
+    <div class="gaia-list">
+      <ul id="settings-profile">
+        <li class="active">
+          <img src="" alt="" id="settings-profile-avatar">
+          <div class="vbox">
+            <p id="settings-profile-username"></p>
+            <p id="settings-profile-email"></p>
+          </div>
+        </li>
+      </ul>
+
+      <header data-l10n-id="settings-general"></header>
+      <ul>
+        <li class="active">
+          <label class="pack-switch reverse">
+            <input type="checkbox" id="settings-dark-mode">
+            <span data-l10n-id="settings-darkMode"></span>
+          </label>
+        </li>
+        <li>
+          <label class="vbox">
+            <p data-l10n-id="settings-language"></p>
+            <select name="" id="settings-languages"></select>
+          </label>
+        </li>
+        <li class="active">
+          <label class="pack-checkbox reverse">
+            <input type="checkbox" id="settings-elastic-scroll">
+            <span data-l10n-id="settings-elasticScroll"></span>
+          </label>
+        </li>
+      </ul>
+
+      <header data-l10n-id="settings-history"></header>
+      <ul>
+        <li class="active">
+          <label class="pack-switch reverse">
+            <input type="checkbox" id="settings-history">
+            <span data-l10n-id="settings-enableHistory"></span>
+          </label>
+        </li>
+        <li class="active" id="settings-history-clear" data-l10n-id="settings-clearHistory"></li>
+      </ul>
+    </div>
+
+    <div class="copyright" data-l10n-id="copyright"></div>
+    <div class="copyright" data-l10n-id="copyright-notice"></div>
+  </main>
+
+  <main class="content loading-screen" id="loading-screen">
+    <svg viewBox="0 0 16 16" width="29" height="29" xmlns="http://www.w3.org/2000/svg">
+      <style>
+        path {
+          animation: spinner 1.5s ease-in-out infinite;
+          stroke-dasharray: 1,200;
+          stroke-dashoffset: 0;
+          fill: none;
+          stroke-width: 2;
+          stroke-miterlimit: 10;
+          stroke-linecap: round;
+          transform-origin: 50% 50%;
+          stroke: var(--accent-color);
+        }
+
+        @keyframes spinner {
+          0% {
+            stroke-dasharray: 0,200;
+            stroke-dashoffset: 0;
+            transform: rotate(0deg);
+          }
+          100% {
+            stroke-dasharray: 130,200;
+            stroke-dashoffset: -43;
+            transform: rotate(-360deg);
+          }
+        }
+      </style>
+      <path d="M8 1A1 1 0 008 15 1 1 0 008 1"></path>
+    </svg>
+  </main>
+</body>
+</html>

@@ -1,0 +1,5 @@
+<svg viewBox="0 0 22 66" width="22" height="66" xmlns="http://www.w3.org/2000/svg">
+  <path d="M5 1 17 1Q21 1 21 5L21 17Q21 21 17 21L5 21Q1 21 1 17L1 5Q1 1 5 1" fill="#e0e2e5"></path>
+  <path d="M5 45 17 45Q21 45 21 49L21 61Q21 65 17 65L5 65Q1 65 1 61L1 49Q1 45 5 45" fill="#000" opacity="0"></path>
+  <path d="M4 57 8 61 18 51 17 50 8 59 5 56 4 57" fill="#000" opacity="0.75"></path>
+</svg>

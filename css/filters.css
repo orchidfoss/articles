@@ -1,0 +1,27 @@
+.filters {
+  display: flex;
+  width: 100%;
+  max-width: 1024px;
+  padding: 0 3rem 1rem;
+  box-sizing: border-box;
+}
+
+.filters > label {
+  line-height: 4rem;
+  font-size: 1.6rem;
+  font-weight: normal;
+  color: var(--text-color);
+  margin-inline-end: 1.5rem;
+}
+
+.filters > label select {
+  padding: 0 1rem;
+  height: 4rem;
+  line-height: 4rem;
+  font-size: 1.6rem;
+  font-weight: normal;
+  color: var(--text-color);
+  border: none;
+  background: var(--background-plus);
+  border-radius: 1rem;
+}

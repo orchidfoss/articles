@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html dir="ltr">
+<head>
+  <meta charset="utf-8">
+
+  <title>Titles</title>
+  <meta name="description" content="Most common used after Multi-Select edit, to confirm user action, and optional provide 'Undo' input">
+
+  <link rel="stylesheet" href="../tooltips.css">
+
+  <!--
+    This <style>, <script> and <link> are only used for the example code,
+    they are not needed for the real use case
+  -->
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-size: 10px;
+      background-color: var(--background, #fff);
+    }
+
+    body {
+      background: none;
+    }
+
+    .container {
+      width: 100%;
+      height: 100%;
+    }
+
+    .box {
+      margin: 10rem auto;
+      display: block;
+      width: 10rem;
+      height: 10rem;
+      border-radius: 1.2rem;
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25);
+      position: relative;
+      transition: 0.3s ease;
+    }
+
+    .box:hover {
+      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.25);
+    }
+  </style>
+  <script>
+    window.onload = function(){
+      document.getElementById('dir').checked = false;
+    };
+  </script>
+</head>
+
+<body role="application">
+  <p dir="ltr">
+    <label>
+      <input id="dir" type="checkbox"
+        onchange="document.documentElement.dir = this.checked ? 'rtl' : 'ltr'">
+      RTL mode
+    </label>
+  </p>
+
+  <div class="container">
+    <div class="box">
+      <div role="title" class="top">Title Tooltip 1</div>
+    </div>
+    <div class="box">
+      <div role="title" class="left">Title Tooltip 2</div>
+    </div>
+    <div class="box">
+      <div role="title" class="right">Title Tooltip 3</div>
+    </div>
+    <div class="box">
+      <div role="title" class="bottom">Title Tooltip 4</div>
+    </div>
+  </div>
+
+</body>
+</html>
