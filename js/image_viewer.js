@@ -21,10 +21,15 @@
 
     setTimeout(() => {
       container.classList.add('visible');
+      element.style.visibility = 'hidden';
     }, 10);
 
     closeButton.onclick = () => {
       container.classList.remove('visible');
+      container.ontransitionend = () => {
+        element.style.visibility = '';
+        container.ontransitionend = null;
+      };
     };
 
     list.innerHTML = '';

@@ -9,7 +9,7 @@
       });
       posts.innerHTML = "";
 
-      OrchidServices.getList("articles", function (data, id) {
+      OrchidServices.getArticles("articles", function (id, data) {
         openContentView("content", false);
         createPostCard(data, id, false);
         if (currentPost == id) {

@@ -23,7 +23,7 @@
 
       var icon = document.createElement("img");
       icon.onerror = () => {
-        icon.src = "images/default.svg";
+        icon.src = "https://orchidfoss.github.io/images/profile_pictures/avatar_default.svg";
       };
       iconHolder.appendChild(icon);
 
@@ -53,14 +53,18 @@
       );
       context.appendChild(timedate);
 
-      OrchidServices.get("webstore/" + item.id).then((data) => {
+      OrchidServices.get("articles/" + item.id).then((data) => {
         openContentView("history", false);
-        icon.src = data.icon;
-        title.textContent = data.name;
-        paragraph.textContent = data.description;
+        paragraph.textContent = data.content;
 
         element.addEventListener("click", () => {
           showWebappInfo(data, item.id, element);
+        });
+        console.log(data);
+
+        OrchidServices.get("profile/" + data.author_id).then((data) => {
+          icon.src = data.profile_picture;
+          title.textContent = data.username;
         });
       });
     });

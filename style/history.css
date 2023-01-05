@@ -141,6 +141,8 @@ html[dir="rtl"] #history .container:nth-child(2n)::after {
 
 #history .timeline-content > .icon-holder > img {
   width: 100%;
+  border-radius: 50%;
+  background: var(--background);
 }
 
 #history .timeline-content > .context {

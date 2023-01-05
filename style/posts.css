@@ -95,11 +95,30 @@
   overflow: hidden;
   width: 100%;
   box-sizing: border-box;
+  padding: 0 0 0.2rem;
+  margin: 0 0 -0.2rem;
 }
 
 .post.post-object > .content-holder .context {
   line-height: 2.2rem;
   max-height: 6.6rem;
+}
+
+.post-object > .content-holder .context a {
+  font-size: 1.6rem;
+  font-weight: normal;
+  color: var(--accent-color);
+  display: inline-block;
+  text-decoration: none;
+  transition: box-shadow 0.2s ease;
+}
+
+.post-object > .content-holder .context a:hover {
+  box-shadow: 0 0.2rem 0 var(--accent-color);
+}
+
+.post-object > .content-holder .context a:active {
+  opacity: 0.5;
 }
 
 .post-object > .content-holder .tags {

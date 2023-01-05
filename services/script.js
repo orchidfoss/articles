@@ -10,14 +10,14 @@ import {
   setDoc,
   collection,
   deleteDoc,
-  deleteField
+  deleteField,
 } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js';
 import {
   getStorage,
   uploadBytes,
   deleteObject,
   listAll,
-  ref
+  ref,
 } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-storage.js';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -181,28 +181,34 @@ var OrchidServices = {
         performance.now &&
         performance.now() * 1000) ||
       0; //Time in microseconds since page-load or 0 if unsupported
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-      var r = Math.random() * 16; //random number between 0 and 16
-      if (d > 0) {
-        //Use timestamp until depleted
-        r = (d + r) % 16 | 0;
-        d = Math.floor(d / 16);
-      } else {
-        //Use microseconds since page-load if supported
-        r = (d2 + r) % 16 | 0;
-        d2 = Math.floor(d2 / 16);
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(
+      /[xy]/g,
+      function (c) {
+        var r = Math.random() * 16; //random number between 0 and 16
+        if (d > 0) {
+          //Use timestamp until depleted
+          r = (d + r) % 16 | 0;
+          d = Math.floor(d / 16);
+        } else {
+          //Use microseconds since page-load if supported
+          r = (d2 + r) % 16 | 0;
+          d2 = Math.floor(d2 / 16);
+        }
+        return (c === 'x' ? r : (r & 0x3) | 0x8).toString(16);
       }
-      return (c === 'x' ? r : (r & 0x3) | 0x8).toString(16);
-    });
+    );
   },
 
-  DEBUG: (location.href === 'http://localhost:5500' || location.href === 'http://127.0.0.1:5500/'),
+  DEBUG:
+    location.href === 'http://localhost:5500' ||
+    location.href === 'http://127.0.0.1:5500/',
 
   init: function os_init() {
     window.addEventListener('load', () => {
       if (this.isUserLoggedIn) {
         this.set('profile/' + this.userId(), {
-          state: 'online'
+          last_active: Date.now(),
+          state: 'online',
         });
       }
     });
@@ -211,9 +217,51 @@ var OrchidServices = {
       if (this.isUserLoggedIn) {
         this.set('profile/' + this.userId(), {
           last_active: Date.now(),
-          state: 'offline'
+          state: 'offline',
         });
       }
+    });
+
+    OrchidServices.get('profile/' + OrchidServices.userId()).then((data) => {
+      data.followers.forEach((follower) => {
+        ['webstore', 'articles'].forEach((platform) => {
+          const doc = collection(db, platform);
+          onSnapshot(doc, (querySnapshot) => {
+            querySnapshot.docChanges().forEach((change) => {
+              if (change.type === 'added') {
+                if (this.DEBUG) {
+                  console.log('New item: ', change.doc.data());
+                }
+
+                if (change.doc.data().author_id !== follower) {
+                  return;
+                }
+                OrchidServices.get('profile/' + follower).then((data) => {
+                  if (!(change.doc.data().published_at >= data.last_active)) {
+                    return;
+                  }
+
+                  OrchidServices.notify(
+                    data.username,
+                    change.doc.data().content,
+                    data.profile_picture
+                  );
+                });
+              }
+              if (change.type === 'modified') {
+                if (this.DEBUG) {
+                  console.log('Modified item: ', change.doc.data());
+                }
+              }
+              if (change.type === 'removed') {
+                if (this.DEBUG) {
+                  console.log('Removed item: ', change.doc.data());
+                }
+              }
+            });
+          });
+        });
+      });
     });
   },
 
@@ -274,24 +322,46 @@ var OrchidServices = {
    */
   getList: async function os_getList(path, callback) {
     const querySnapshot = await getDocs(collection(db, path));
+    console.log(querySnapshot);
     querySnapshot.forEach((doc) => {
       // doc.data() is never undefined for query doc snapshots
       if (this.DEBUG) {
         console.log(doc.id, ' => ', doc.data());
       }
-      callback(doc.data(), doc.id);
+      callback(doc.id, doc.data());
     });
   },
 
   /**
-   * Gets a array value from specified database collection and returns it with a callback.
+   * Gets a data array from specified database collection and returns it with a callback but ordered by rating.
    * @param {string} path
    * @param {function} callback
    * @returns {object}
    */
-  getArrayList: async function os_getList(path, callback) {
+  getArticles: async function os_getArticles(path, callback) {
     const querySnapshot = await getDocs(collection(db, path));
-    callback(querySnapshot);
+
+    var array = [];
+    querySnapshot.forEach((doc) => {
+      // doc.data() is never undefined for query doc snapshots
+      if (this.DEBUG) {
+        console.log(doc.id, ' => ', doc.data());
+      }
+      array.push([doc.id, doc.data()]);
+    });
+
+    setTimeout(() => {
+      array.sort((a, b) => {
+        if (b[1].likes < a[1].likes) return -1;
+        if (b[1].likes > a[1].likes) return 1;
+        if (b[1].dislikes < a[1].dislikes) return 1;
+        if (b[1].dislikes > a[1].dislikes) return -1;
+        return 0;
+      });
+      array.forEach((item) => {
+        callback(item[0], item[1]);
+      });
+    }, 100);
   },
 
   /**
@@ -380,8 +450,12 @@ var OrchidServices = {
 
   auth: {
     login: function os_auth_login(username, password) {
-      OrchidServices.getList('profile', (user) => {
-        if (user.username == username || user.email == username || user.phone_number == username) {
+      OrchidServices.getList('profile', (id, user) => {
+        if (
+          user.username == username ||
+          user.email == username ||
+          user.phone_number == username
+        ) {
           if (user.password == MD5(password)) {
             OrchidServices.auth.loginWithToken(user.token);
           } else {
@@ -412,7 +486,12 @@ var OrchidServices = {
      * @param {string} password
      * @param {string} birthDate
      */
-    signUp: async function os_auth_signUp(username, email, password, birthDate) {
+    signUp: async function os_auth_signUp(
+      username,
+      email,
+      password,
+      birthDate
+    ) {
       var token = OrchidServices._generateUUID();
       OrchidServices.set('profile/' + token, {
         username: username,
@@ -440,7 +519,7 @@ var OrchidServices = {
         is_moderator: false,
         is_developer: false,
         last_search: '',
-        last_visited_site: ''
+        last_visited_site: '',
       });
       localStorage.setItem('ws.login.userId', token);
 
@@ -451,6 +530,36 @@ var OrchidServices = {
   },
 
   authUi: function os_authUi() {},
+
+  notify: function os_notify(title, body, icon) {
+    if (!('Notification' in window)) {
+      // Check if the browser supports notifications
+      alert('This browser does not support desktop notification');
+    } else if (Notification.permission === 'granted') {
+      // Check whether notification permissions have already been granted;
+      // if so, create a notification
+      const notification = new Notification(name, {
+        icon: icon,
+        body: body,
+      });
+      // …
+    } else if (Notification.permission !== 'denied') {
+      // We need to ask the user for permission
+      Notification.requestPermission().then((permission) => {
+        // If the user accepts, let's create a notification
+        if (permission === 'granted') {
+          const notification = new Notification(name, {
+            icon: icon,
+            body: body,
+          });
+          // …
+        }
+      });
+    }
+
+    // At last, if the user has denied notifications, and you
+    // want to be respectful there is no need to bother them anymore.
+  },
 
   custom: {
     createStoreApp: async function os_createStoreApp(data) {
@@ -471,7 +580,7 @@ var OrchidServices = {
         tags: data.tags,
         age_rating: data.age_rating,
         price: data.price,
-        comments: []
+        comments: [],
       });
     },
 
@@ -486,7 +595,7 @@ var OrchidServices = {
         images: data.images,
         likes: [],
         dislikes: [],
-        comments: []
+        comments: [],
       });
     },
 
@@ -502,34 +611,34 @@ var OrchidServices = {
         messages: {},
         channels: [
           {
-            name: "Chatting",
+            name: 'Chatting',
             rooms: [
               {
                 type: 'text',
-                name: 'General'
+                name: 'General',
               },
               {
                 type: 'text',
-                name: 'Off Topic'
-              }
-            ]
+                name: 'Off Topic',
+              },
+            ],
           },
           {
-            name: "Talking",
+            name: 'Talking',
             rooms: [
               {
                 type: 'voice',
-                name: 'Voice Chat'
-              }
-            ]
-          }
-        ]
+                name: 'Voice Chat',
+              },
+            ],
+          },
+        ],
       });
-      OrchidServices.set("profile/" + OrchidServices.userId(), {
-        chat_groups: { [token]: "" },
+      OrchidServices.set('profile/' + OrchidServices.userId(), {
+        chat_groups: { [token]: '' },
       });
-    }
-  }
+    },
+  },
 };
 
 OrchidServices.init();

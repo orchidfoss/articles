@@ -57,10 +57,28 @@
     }));
     info.appendChild(date);
 
+    var secureContent = data.content;
+    if (!secureContent) {
+      secureContent = '';
+    }
+
+    secureContent = secureContent.replaceAll('<', '&lt;');
+    secureContent = secureContent.replaceAll('>', '&gt;');
+
     var content = document.createElement("span");
     content.classList.add("context");
-    content.textContent = data.content;
+    content.textContent = secureContent;
     contentHolder.appendChild(content);
+
+    var pattern1 = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+    var str1 = secureContent.replaceAll(pattern1, "<a href='$1'>$1</a>");
+    var pattern2 =/(^|[^\/])(www\.[\S]+(\b|$))/gim;
+    var str2 = str1.replaceAll(pattern2, '$1<a target="_blank" href="http://$2">$2</a>');
+    content.innerHTML = str2;
+
+    var embeds = document.createElement("div");
+    embeds.classList.add("embeds");
+    contentHolder.appendChild(embeds);
 
     var images = document.createElement("div");
     images.classList.add("images");
@@ -260,6 +278,7 @@
     var shareButton = document.getElementById("share-button");
     var optionsButton = document.getElementById("options-button");
 
+    addToHistory(id);
     window.history.pushState({ html: "", pageTitle: "" }, "", "?post=" + id);
     postAvatar.onerror = () => {
       postAvatar.src =
