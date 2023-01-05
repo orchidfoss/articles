@@ -304,6 +304,12 @@ var OrchidServices = {
     setDoc(docRef, value, { merge: true });
   },
 
+  /**
+   * Removes data in the specified path.
+   * @param {string} path
+   * @param {object} value
+   */
+
   remove: async function os_remove(path) {
     const docRef = doc(db, path);
     await deleteDoc(docRef);

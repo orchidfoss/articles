@@ -48,7 +48,12 @@
   flex-direction: column;
 }
 
-.post-object > .content-holder .author {
+.post-object > .content-holder .info {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.post-object > .content-holder .info > .author {
   font-size: 1.6rem;
   font-weight: normal;
   color: var(--accent-color);
@@ -56,21 +61,30 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-inline-end: 1rem;
 }
 
-.post-object > .content-holder .author.verified:after {
+.post-object > .content-holder .info > .author.verified:after {
   content: 'tick-circle';
   font-family: 'gaia-icons';
   margin-inline-start: 0.5rem;
   width: 1em;
 }
 
-.post-object > .content-holder .author:hover > span {
+.post-object > .content-holder .info > .author:hover > span {
   text-decoration: underline;
 }
 
-.post-object > .content-holder .author:active {
+.post-object > .content-holder .info > .author:active {
   opacity: 0.5;
+}
+
+.post-object > .content-holder .info > .date {
+  font-size: 1.6rem;
+  font-weight: normal;
+  color: var(--text-color);
+  opacity: 0.5;
+  display: block;
 }
 
 .post-object > .content-holder .context {
@@ -88,21 +102,56 @@
   max-height: 6.6rem;
 }
 
+.post-object > .content-holder .tags {
+  height: 3rem;
+  display: flex;
+  margin-top: 0.5rem;
+}
+
+.post-object > .content-holder .tags:empty {
+  display: none;
+}
+
+.post-object > .content-holder .tags span {
+  height: 3rem;
+  line-height: 3rem;
+  padding: 0 1.5rem;
+  border-radius: 1.5rem;
+  background: var(--background);
+  font-size: 1.6rem;
+  margin-inline-end: 0.5rem;
+}
+
+.post-object > .content-holder .tags span:last-child {
+  margin-inline-end: 0;
+}
+
 .post-object > .content-holder .images:not(:empty) {
   display: grid;
   width: 100%;
   border-radius: 1rem;
-  overflow: hidden;
   grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
   grid-template-rows: repeat(auto-fit, minmax(5rem, 1fr));
   grid-gap: 0.2rem;
+  /* background: var(--background); */
 }
 
 .post-object > .content-holder .images > img {
-  width: 100%;
+  max-width: 100%;
+  max-height: 30rem;
   object-fit: cover;
   background: var(--background);
   border-radius: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.post-object > .content-holder .images > img:hover {
+  opacity: 0.8;
+}
+
+.post-object > .content-holder .images > img:active {
+  transition: none;
+  /* transform: scale(0.95); */
 }
 
 .post-object > nav {

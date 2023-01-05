@@ -1,0 +1,180 @@
+#image-viewer {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--width);
+  height: var(--height);
+  background: transparent;
+  z-index: 100;
+  border-radius: 1rem;
+  overflow: hidden;
+
+  transition: all 0.5s cubic-bezier(0.2, 0.9, 0.1, 1);
+  visibility: hidden;
+}
+
+#image-viewer.visible {
+  background: var(--background);
+  box-shadow: 0 1rem 2rem rgba(0,0,0,0.3);
+  border-radius: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  visibility: visible;
+}
+
+#image-viewer-list {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  display: flex;
+}
+
+#image-viewer-list::-webkit-scrollbar {
+  display: none;
+}
+
+#image-viewer:not(.visible) #image-viewer-list {
+  overflow: hidden;
+}
+
+#image-viewer-list > img {
+  min-width: 100vw;
+  width: 100vw;
+  height: 100%;
+  scroll-snap-align: center;
+  object-fit: contain;
+  display: inline-block;
+}
+
+#image-viewer-close-button {
+  position: absolute;
+  top: 1rem;
+  width: 5rem;
+  height: 5rem;
+  line-height: 5rem;
+  text-align: center;
+  padding: 0;
+  border-radius: 50%;
+  background: var(--backdrop-color);
+  z-index: 1;
+  box-shadow:
+    inset 0 0 0 0.1rem rgba(255,255,255,0.125),
+    0 0.3rem 0.6rem rgba(0,0,0,0.25);
+}
+html[dir="ltr"] #image-viewer-close-button {
+  left: 1rem;
+}
+html[dir="rtl"] #image-viewer-close-button {
+  right: 1rem;
+}
+
+#image-viewer-close-button:hover {
+  background: var(--background);
+}
+
+#image-viewer-close-button:before {
+  position: static;
+  font-size: 2rem;
+  height: 5rem;
+  line-height: 5rem;
+  margin: 0;
+}
+
+#image-viewer-back-button,
+#image-viewer-forward-button {
+  position: absolute;
+  top: 0;
+  width: 5rem;
+  height: 100%;
+  line-height: 100vh;
+  text-align: center;
+  padding: 0;
+  border-radius: 0;
+  transition: opacity 0.3s ease;
+}
+
+html[dir="ltr"] #image-viewer-back-button,
+html[dir="rtl"] #image-viewer-forward-button {
+  left: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.5), transparent);
+}
+
+html[dir="rtl"] #image-viewer-back-button,
+html[dir="ltr"] #image-viewer-forward-button {
+  right: 0;
+  background: linear-gradient(to left, rgba(0,0,0,0.5), transparent);
+}
+
+#image-viewer-back-button:before,
+#image-viewer-forward-button:before {
+  position: static;
+  width: 2rem;
+  height: 2rem;
+  font-size: 2rem;
+  scale: 1 2;
+  margin: 0;
+}
+
+#image-viewer.visible #image-viewer-back-button.hidden,
+#image-viewer.visible #image-viewer-forward-button.hidden {
+  opacity: 0.5;
+  pointer-events: none;
+  background: transparent !important;
+  backdrop-filter: none;
+}
+
+/* Fade when scaling */
+#image-viewer-close-button,
+#image-viewer-back-button,
+#image-viewer-forward-button {
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  opacity: 0;
+}
+
+#image-viewer.visible #image-viewer-close-button,
+#image-viewer.visible #image-viewer-back-button,
+#image-viewer.visible #image-viewer-forward-button {
+  transition: opacity 0.5s ease 0.5s, transform 0.5s ease 0.5s;
+  opacity: 1;
+}
+
+@supports (backdrop-filter: saturate(180%) blur(20px)) {
+  #image-viewer-back-button,
+  #image-viewer-forward-button {
+    backdrop-filter: saturate(180%) blur(20px)
+  }
+
+  #image-viewer-back-button,
+  #image-viewer-forward-button {
+    background: var(--backdrop-color) !important;
+  }
+  html[dir="ltr"] #image-viewer-back-button,
+  html[dir="rtl"] #image-viewer-forward-button {
+    padding-right: 1.5rem;
+    mask-image: linear-gradient(to right, white 2.5rem, transparent);
+    -webkit-mask-image: linear-gradient(to right, white 2.5rem, transparent);
+  }
+  html[dir="rtl"] #image-viewer-back-button,
+  html[dir="ltr"] #image-viewer-forward-button {
+    padding-left: 1.5rem;
+    mask-image: linear-gradient(to left, white 2.5rem, transparent);
+    -webkit-mask-image: linear-gradient(to left, white 2.5rem, transparent);
+  }
+
+  #image-viewer-back-button:hover,
+  #image-viewer-forward-button:hover {
+    background: linear-gradient(to bottom, var(--backdrop-color), var(--translucent), var(--backdrop-color)) !important;
+  }
+
+  #image-viewer-back-button:active,
+  #image-viewer-forward-button:active {
+    background: linear-gradient(to bottom, var(--backdrop-color), var(--translucent-plus), var(--backdrop-color)) !important;
+  }
+}

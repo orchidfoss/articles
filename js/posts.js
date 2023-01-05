@@ -36,10 +36,26 @@
     contentHolder.classList.add("content-holder");
     element.appendChild(contentHolder);
 
+    var info = document.createElement("div");
+    info.classList.add("info");
+    contentHolder.appendChild(info);
+
     var author = document.createElement("a");
     author.classList.add("author");
     author.target = "_blank";
-    contentHolder.appendChild(author);
+    info.appendChild(author);
+
+    var date = document.createElement("a");
+    date.classList.add("date");
+    date.textContent = EnglishToArabicNumerals(new Date(data.published_at).toLocaleDateString(navigator.mozL10n.language.code, {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true
+    }));
+    info.appendChild(date);
 
     var content = document.createElement("span");
     content.classList.add("context");
@@ -51,11 +67,28 @@
     contentHolder.appendChild(images);
 
     if (data.images) {
-      data.images.forEach((image) => {
+      data.images.forEach((image, index) => {
         var element = document.createElement("img");
         element.src = image;
         element.loading = "lazy";
+        element.onclick = (evt) => {
+          evt.preventDefault();
+          evt.stopPropagation();
+          imageViewer(data.images, index, element);
+        };
         images.appendChild(element);
+      });
+    }
+
+    var tags = document.createElement("div");
+    tags.classList.add("tags");
+    contentHolder.appendChild(tags);
+
+    if (data.tags) {
+      data.tags.forEach((tag) => {
+        var element = document.createElement("span");
+        element.textContent = tag;
+        tags.appendChild(element);
       });
     }
 
@@ -191,8 +224,20 @@
     nav.appendChild(optionsButton);
 
     var postDropdown = document.getElementById('post-dropdown');
+    var deleteButton = document.getElementById('post-dropdown-delete');
     Dropdown(optionsButton, postDropdown, () => {
-
+      OrchidServices.get('profile/' + OrchidServices.userId()).then((data) => {
+        if (data.author_id == OrchidServices.userId() || data.is_moderator) {
+          deleteButton.onclick = () => {
+            OrchidServices.remove('articles/' + data.token);
+            postDropdown.classList.remove('visible');
+            window.viewFunction["content"]();
+          };
+          deleteButton.disabled = false;
+        } else {
+          deleteButton.disabled = true;
+        }
+      });
     });
 
     var optionsButtonTooltip = document.createElement("div");

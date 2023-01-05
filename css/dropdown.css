@@ -207,12 +207,17 @@ html[dir="rtl"] .dropdown-view ul li[data-for]:not(.separator) {
   background-color: var(--translucent-plus) !important;
 }
 
-.dropdown-view ul li:not(.separator)[data-icon] {
+.dropdown-view ul li[disabled]:not(.separator) {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.dropdown-view ul li[data-icon]:not(.separator) {
   padding-inline-start: 4rem;
   position: relative;
 }
 
-.dropdown-view ul li:not(.separator)[data-icon]:before {
+.dropdown-view ul li[data-icon]:not(.separator):before {
   font-size: 2rem;
   position: absolute;
   top: 0;
@@ -220,10 +225,10 @@ html[dir="rtl"] .dropdown-view ul li[data-for]:not(.separator) {
   line-height: 4rem;
   width: 2rem;
 }
-html[dir="ltr"] .dropdown-view ul li:not(.separator)[data-icon]:before {
+html[dir="ltr"] .dropdown-view ul li[data-icon]:not(.separator):before {
   left: 1rem;
 }
-html[dir="rtl"] .dropdown-view ul li:not(.separator)[data-icon]:before {
+html[dir="rtl"] .dropdown-view ul li[data-icon]:not(.separator):before {
   right: 1rem;
 }
 
