@@ -1,0 +1,74 @@
+.embeds {
+  width: 100%;
+}
+
+.embed {
+  width: 100%;
+  background: var(--background);
+  border-radius: 2rem;
+  display: flex;
+  padding: 1rem;
+  box-sizing: border-box;
+  margin: 0.5rem 0;
+}
+
+.embed .image-holder {
+  height: 7rem;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.embed.article .image-holder {
+  height: unset;
+  width: 100%;
+  flex: 1;
+}
+
+.embed .image-holder .image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.embed .text-content {
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  margin-inline-start: 1rem;
+}
+
+.embed.article .text-content {
+  flex: 2;
+}
+
+.embed .text-content .site-name,
+.embed .text-content .title,
+.embed .text-content .description {
+  color: var(--text-color);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.embed .text-content .site-name {
+  font-size: 1.4rem;
+  font-weight: normal;
+  color: var(--text-color);
+  opacity: 0.5;
+}
+
+.embed .text-content .title {
+  font-size: 2.4rem;
+  line-height: 2.6rem;
+  color: var(--accent-color);
+}
+
+.embed .text-content .description {
+  font-size: 1.6rem;
+  font-weight: normal;
+  color: var(--text-color);
+}

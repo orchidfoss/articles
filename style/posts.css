@@ -122,9 +122,8 @@
 }
 
 .post-object > .content-holder .tags {
-  height: 3rem;
   display: flex;
-  margin-top: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .post-object > .content-holder .tags:empty {
@@ -138,7 +137,11 @@
   border-radius: 1.5rem;
   background: var(--background);
   font-size: 1.6rem;
+  margin-top: 0.5rem;
   margin-inline-end: 0.5rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .post-object > .content-holder .tags span:last-child {
